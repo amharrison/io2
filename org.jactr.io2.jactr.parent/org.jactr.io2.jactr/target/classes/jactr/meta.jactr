@@ -1,0 +1,19 @@
+namespace jactr.meta {
+import jactr.declarative.*
+
+buffers {
+	meta {} [
+		"Activation"              : "1"
+		"StrictHarvestingEnabled" : "false" ]
+}
+
+chunk equals, not-equals, less-than, less-than-equals, greater-than, greater-than-equals
+
+chunktype condition{
+  slot = null
+  reference = null
+  condition = equals
+  value = null
+}
+
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='2'>
+  <artifact classifier='osgi.bundle' id='org.jactr.io2.jactr.ui' version='1.0.0.202104201419'>
+    <properties size='5'>
+      <property name='artifact.size' value='301729'/>
+      <property name='download.size' value='301729'/>
+      <property name='maven-groupId' value='org.jactr.io2.jactr'/>
+      <property name='maven-artifactId' value='org.jactr.io2.jactr.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+  </artifact>
+  <artifact classifier='osgi.bundle' id='org.jactr.io2.jactr.ui.source' version='1.0.0.202104201419'>
+    <properties size='6'>
+      <property name='artifact.size' value='244667'/>
+      <property name='download.size' value='244667'/>
+      <property name='maven-groupId' value='org.jactr.io2.jactr'/>
+      <property name='maven-artifactId' value='org.jactr.io2.jactr.ui'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+    </properties>
+  </artifact>
+</artifacts>

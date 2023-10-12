@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.jactr.io2.jactr.ui.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: org.jactr.io2.jactr.ui.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.202104201419
+Bundle-SymbolicName: org.jactr.io2.jactr.ui.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.jactr.io2.jactr.ui,org.junit.jupiter.api;bundle-vers
+ ion="[5.0.0,6.0.0)",org.eclipse.xtext.testing,org.eclipse.xtext.xbase.t
+ esting,org.eclipse.xtext.junit4,org.eclipse.xtext.xbase.junit,org.eclip
+ se.core.runtime,org.eclipse.ui.workbench;resolution:=optional,org.eclip
+ se.xtext.ui.testing
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.jactr.io2.jactr.ui.tests;x-internal=true
+

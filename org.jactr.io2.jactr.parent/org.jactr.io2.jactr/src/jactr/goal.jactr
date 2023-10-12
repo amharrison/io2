@@ -1,0 +1,6 @@
+namespace jactr.goal {
+buffers {
+	goal {} [
+		"Activation"              : "1"
+		"StrictHarvestingEnabled" : "false" ]
+} }

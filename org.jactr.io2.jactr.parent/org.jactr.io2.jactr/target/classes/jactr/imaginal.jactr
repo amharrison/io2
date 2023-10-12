@@ -1,0 +1,6 @@
+namespace jactr.imaginal {
+buffers {
+	imaginal {} [
+		"Activation"              : "1"
+		"StrictHarvestingEnabled" : "true" ]
+} }

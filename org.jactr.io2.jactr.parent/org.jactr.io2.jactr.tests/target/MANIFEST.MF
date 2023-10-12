@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.jactr.io2.jactr.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: org.jactr.io2.jactr.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.202104201419
+Bundle-SymbolicName: org.jactr.io2.jactr.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.jactr.io2.jactr,org.junit.jupiter.api;bundle-version
+ ="[5.0.0,6.0.0)",org.eclipse.xtext.testing,org.eclipse.xtext.xbase.test
+ ing,org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.jactr.io2.jactr.tests;x-internal=true
+

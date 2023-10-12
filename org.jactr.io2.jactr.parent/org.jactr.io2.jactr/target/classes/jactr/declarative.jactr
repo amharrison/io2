@@ -1,0 +1,15 @@
+namespace jactr.declarative {
+buffers {
+}
+
+chunktype chunk {}
+
+chunk new, free, busy, error, full, empty, requested, unrequested, lowest, highest, reset, error-nothing-available,
+	error-nothing-matches, error-no-longer-available, error-changed-too-much, error-invalid-index, error-chunk-deleted,
+error-unknown
+
+chunktype command {}
+
+chunktype clear extends command {all = false}
+
+chunktype attend-to extends command {where = null} }

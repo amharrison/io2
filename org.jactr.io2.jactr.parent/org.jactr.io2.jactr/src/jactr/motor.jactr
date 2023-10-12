@@ -1,0 +1,76 @@
+namespace jactr.motor {
+import jactr.declarative.*
+module "org.jactr.core.module.declarative.six.DefaultDeclarativeModule6" [
+	"ActivationNoise"                  : "0"
+	"BaseLevelConstant"                : "0"
+	"ChunkConfiguratorClass"           : "org.jactr.core.module.declarative.basic.chunk.NoOpChunkConfigurator"
+	"ChunkFactoryClass"                : "org.jactr.core.module.declarative.basic.chunk.DefaultChunkFactory"
+	"ChunkNamerClass"                  : "org.jactr.core.module.declarative.basic.chunk.NoOpChunkNamer"
+	"ChunkTypeConfiguratorClass"       : "org.jactr.core.module.declarative.basic.type.NoOpChunkTypeConfigurator"
+	"ChunkTypeFactoryClass"            : "org.jactr.core.module.declarative.basic.type.DefaultChunkTypeFactory"
+	"ChunkTypeNamerClass"              : "org.jactr.core.module.declarative.basic.type.NoOpChunkTypeNamer"
+	"EnablePartialMatching"            : "false"
+	"MaximumDifference"                : "-1"
+	"MaximumSimilarity"                : "0"
+	"MismatchPenalty"                  : "1"
+	"PermanentActivationNoise"         : "0"
+	"SubsymbolicChunkFactoryClass"     : "org.jactr.core.module.declarative.basic.chunk.DefaultSubsymbolicChunkFactory5"
+	"SubsymbolicChunkTypeFactoryClass" : "org.jactr.core.module.declarative.basic.type.DefaultSubsymbolicChunkTypeFactory"
+	"SymbolicChunkFactoryClass"        : "org.jactr.core.module.declarative.basic.chunk.DefaultSymbolicChunkFactory"
+	"SymbolicChunkTypeFactoryClass"    : "org.jactr.core.module.declarative.basic.type.DefaultSymbolicChunkTypeFactory" ]
+
+buffers {
+	motor {} [
+		"Activation"              : "0"
+		"G"                       : "0"
+		"StrictHarvestingEnabled" : "true" ]
+}
+
+
+chunktype motor-command extends command {muscle = null}
+
+chunktype compound-motor-command extends motor-command {state = busy}
+
+chunktype abort extends motor-command {}
+
+chunktype hand-command extends motor-command {hand = null}
+
+chunktype finger-command extends hand-command {finger = null}
+
+chunktype motor-constant {}
+
+motor-constant right, left, index, middle, ring, thumb, pinkie, mouse, joystick1, joystick2, aborting
+
+chunktype peck extends finger-command {
+	distance  = null
+	theta     = null
+}
+
+chunktype peck-recoil extends peck {}
+
+chunktype punch extends finger-command {}
+
+chunktype press extends finger-command {}
+
+chunktype release extends finger-command {}
+
+chunktype point-hand-at-key extends hand-command {to-key = null}
+
+chunktype press-key extends motor-command {key = null}
+
+chunktype click-mouse extends finger-command { 
+  hand   = right
+  finger = index
+}
+
+chunktype hand-to-mouse extends hand-command {hand = right}
+
+chunktype hand-to-home extends hand-command {hand = right}
+
+chunktype move-cursor extends motor-command {
+	object   = null
+	location = null
+	device   = mouse
+}
+
+chunktype motor-clear extends clear {muscle = null} }

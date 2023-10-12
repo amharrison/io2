@@ -1,0 +1,6 @@
+namespace jactr.retrieval {
+buffers {
+	retrieval {} [
+		"Activation"              : "0"
+		"StrictHarvestingEnabled" : "true" ]
+} }

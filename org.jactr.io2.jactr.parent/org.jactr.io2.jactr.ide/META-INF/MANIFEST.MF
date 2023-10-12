@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.jactr.io2.jactr.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: org.jactr.io2.jactr.ide
+Bundle-Vendor: jactr.org
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.jactr.io2.jactr.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.jactr.io2.jactr,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.eclipse.jdt.core,
+ org.eclipse.pde.core,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.jactr.io2.jactr.ide.contentassist.antlr.internal,
+ org.jactr.io2.jactr.ide.contentassist.antlr

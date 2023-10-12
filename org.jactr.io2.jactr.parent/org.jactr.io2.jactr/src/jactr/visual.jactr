@@ -1,0 +1,99 @@
+namespace jactr.visual {
+import jactr.declarative.*
+
+buffers {
+  visual-location {} [
+    "Activation"              : "0"
+    "StrictHarvestingEnabled" : "true"
+  ]
+  visual {} [
+    "Activation"              : "0"
+    "StrictHarvestingEnabled" : "true"
+  ]
+}
+
+
+chunktype color {
+  red   = null
+  green = null
+  blue  = null
+  alpha = null
+}
+
+color black (red=0.0, green=0.0, blue=0.0, alpha=255.0), darkGray (red=64.0, green=64.0, blue=64.0, alpha=255.0),
+  gray (red=128.0, green=128.0, blue=128.0, alpha=255.0), lightGray (red=192.0, green=192.0, blue=192.0, alpha=255.0),
+  white (red=255.0, green=255.0, blue=255.0, alpha=255.0), red (red=255.0, green=0.0, blue=0.0, alpha=255.0),
+  blue (red=0.0, green=0.0, blue=255.0, alpha=255.0), green (red=0.0, green=255.0, blue=0.0, alpha=255.0),
+  yellow (red=255.0, green=255.0, blue=0.0, alpha=255.0), orange (red=255.0, green=200.0, blue=0.0, alpha=255.0),
+  magenta (red=255.0, green=0.0, blue=255.0, alpha=255.0), cyan (red=0.0, green=255.0, blue=255.0, alpha=255.0)
+
+chunktype visual-location {
+  screen-x = null
+  screen-y = null
+  distance = null
+  color    = null
+  size     = null
+  kind     = null
+  value    = null
+}
+
+chunktype set-default-visual-search extends visual-location {}
+
+chunktype visual-object {
+  screen-pos = null
+  value      = null
+  height     = null
+  width      = null
+  token      = null
+  type       = null
+  status     = null
+  color      = null
+}
+
+chunktype gui extends visual-object {
+  text    = null
+  enabled = false
+}
+
+chunktype button-object extends gui{}
+chunktype label-object extends gui{}
+chunktype menu-object extends gui{}
+
+chunktype text extends visual-object {}
+
+chunktype empty-space extends visual-object {}
+
+chunktype cursor extends visual-object {}
+
+chunktype oval extends gui {}
+
+chunktype line extends visual-object {
+  other-pos = null
+  end1-x    = null
+  end1-y    = null
+  end2-x    = null
+  end2-y    = null
+}
+
+chunktype phrase extends visual-object {
+  objects = null
+  words   = null
+}
+
+chunktype vision-command extends command {}
+
+chunktype move-attention extends vision-command {
+  screen-pos = null
+  scale      = null
+}
+
+chunktype start-tracking extends vision-command {}
+
+chunktype assign-finst extends vision-command {
+  object   = null
+  location = null
+}
+
+chunktype visual-constant {}
+
+visual-constant greater-than-current, less-than-current, current }

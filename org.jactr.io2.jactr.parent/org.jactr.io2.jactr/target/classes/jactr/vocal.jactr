@@ -1,0 +1,15 @@
+namespace jactr.vocal {
+import jactr.declarative.*
+
+buffers {
+	vocal {} [
+		"Activation"              : "0"
+		"StrictHarvestingEnabled" : "true" ]
+}
+
+
+chunktype vocal-command extends command {string = null}
+
+chunktype speak extends vocal-command {}
+
+chunktype subvocalize extends vocal-command {} }

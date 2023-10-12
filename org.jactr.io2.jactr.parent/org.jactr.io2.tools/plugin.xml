@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.jactr.core.instruments">
+      <instrument
+            class="org.jactr.io2.tools.comp.ProductionCompilationListener"
+            hidden="false"
+            name="Production Compilation Listener"
+            requiresClasspath="false">
+         <description>
+            Will save the compiled productions and parents to an xml file using the jactr syntax.
+         </description>
+      </instrument>
+   </extension>
+
+</plugin>

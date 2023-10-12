@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.jactr.io2.jactr.feature"
+      label="jACT-R IO2"
+      version="1.0.0.202104201419">
+
+   <requires>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.xbase"/>
+      <import plugin="org.eclipse.equinox.common" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.xtext.xbase.lib" version="2.14.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.xtend.lib" version="2.14.0" match="greaterOrEqual"/>
+      <import plugin="org.jactr.core" version="2.5.1" match="greaterOrEqual"/>
+      <import plugin="org.jactr.io2" version="2.5.1" match="greaterOrEqual"/>
+      <import plugin="org.jactr.osgi"/>
+      <import plugin="org.commonreality.api" version="1.5.1" match="greaterOrEqual"/>
+      <import plugin="org.commonreality.core" version="1.5.1" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j" version="1.2.15" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.collections" version="9.2.0" match="greaterOrEqual"/>
+      <import plugin="javax.annotation" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="org.eclipse.xtext.ide"/>
+      <import plugin="org.eclipse.xtext.xbase.ide"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.pde.core"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.xtext.ui.shared"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.eclipse.xtext.xbase.ui"/>
+      <import plugin="org.eclipse.xtext.common.types.ui"/>
+      <import plugin="org.eclipse.jdt.debug.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.jactr.io2.jactr" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.jactr.io2.jactr.ide" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="javax.inject"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.jactr.io" version="2.5.1" match="greaterOrEqual"/>
+      <import plugin="org.jactr.tools" version="2.5.1" match="greaterOrEqual"/>
+      <import plugin="org.antlr.runtime" version="3.2.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.jactr.io2.jactr"
+         download-size="669"
+         install-size="1554"
+         version="1.0.0.202104201419"
+         unpack="false"/>
+
+   <plugin
+         id="org.jactr.io2.jactr.ide"
+         download-size="90"
+         install-size="371"
+         version="1.0.0.202104201419"
+         unpack="false"/>
+
+   <plugin
+         id="org.jactr.io2.jactr.ui"
+         download-size="294"
+         install-size="541"
+         version="1.0.0.202104201419"
+         unpack="false"/>
+
+   <plugin
+         id="org.jactr.io2.tools"
+         download-size="23"
+         install-size="48"
+         version="1.0.0.202104201419"
+         unpack="false"/>
+
+</feature>

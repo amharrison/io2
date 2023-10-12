@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.jactr.org/io2/jactr/ModelFragment"
+			class = "org.jactr.io2.jactr.modelFragment.ModelFragmentPackage"
+			genModel = "model/generated/ModelFragment.genmodel" />
+	</extension>
+ <extension
+       point="org.jactr.io2.compilationunitprovider">
+    <provider
+          class="org.jactr.io2.jactr.compile.XtextCompilationUnitProvider">
+    </provider>
+ </extension>
+ <extension
+       point="org.jactr.io2.astgenerator">
+    <generator
+          class="org.jactr.io2.jactr.ast.XtextASTGenerator">
+    </generator>
+ </extension>
+ <extension
+       point="org.jactr.io2.sourcegenerator">
+    <generator
+          class="org.jactr.io2.jactr.source.XtextSourceGenerator">
+    </generator>
+ </extension>
+</plugin>

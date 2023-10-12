@@ -1,0 +1,222 @@
+grammar org.jactr.io2.jactr.ModelFragment with org.eclipse.xtext.common.Terminals
+
+generate modelFragment "http://www.jactr.org/io2/jactr/ModelFragment"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+//import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
+
+ModelFragment:
+  package=PackageDeclaration;
+
+PackageDeclaration:
+  'namespace' name=QualifiedName '{'
+  (imports+=Import)*
+  (modules+=ModelModule)*
+  (extensions+=ModelExtension)*
+  (buffers=Buffers)?
+  (elements+=Element)*
+  '}'
+  parameters=ParametersBlock?;
+
+Import:
+  'import' importedNamespace=QualifiedNameWithWildcard;
+
+ModelModule:
+  'module' moduleClass=STRING parameters=ParametersBlock?;
+
+ModelExtension:
+  'extension' extensionClass=STRING parameters=ParametersBlock?;
+
+Element:
+  ChunkType | Chunks | Production | Parameters;
+
+Parameters: 'parameters''('elements+=ID (','elements+=ID)* ')' parameters=ParametersBlock;
+
+Chunks:
+  type=[ChunkType|QualifiedName] chunks+=ChunkDef (',' chunks+=ChunkDef)*;
+
+ChunkDef:
+  Overridable
+  name=ID
+  ('(' slots+=SimpleSlot (',' slots+=SimpleSlot)* ')')?
+  parameters=ParametersBlock?;
+
+ChunkType:
+  Overridable
+  'chunktype' name=ID ('extends' superType=[ChunkType|QualifiedName]
+  //ignore multiple inheritance for now
+  /*(',' superType+=[ChunkType|QualifiedName])? */)?
+  '{'
+  (slots+=SimpleSlot)* '}'
+  parameters=ParametersBlock?;
+
+  //@Override
+QualifiedNameWithWildcard:
+  QualifiedName '.*';
+
+  //@Override
+QualifiedName:
+  ID ('.' ID)*;
+  
+fragment Overridable : (override?=OVERRIDE)?;
+
+@Override
+terminal ID:
+  '^'?('a'..'z' | 'A'..'Z' | ':') ('a'..'z' | 'A'..'Z' | '0'..'9' | '-' | '_')* ('a'..'z' | 'A'..'Z' | '0'..'9');
+  //terminal VARIABLE:
+//  '='  ('a'..'z' | 'A'..'Z' | '0'..'9' | '-' )* ('a'..'z' | 'A'..'Z' | '0'..'9');
+
+Buffers : {Buffers} 'buffers''{' (buffers+=Buffer)* '}';
+/**
+ * Buffer block
+ */
+Buffer:
+  Overridable
+   name=ID '{'
+  (source+=[ChunkDef|QualifiedName])*
+  '}' parameters=ParametersBlock?;
+
+  /**
+ * Productions
+ */
+Production:
+  Overridable
+  'production' name=ID '{'
+  (conditions+=ProductionCondition)+
+  '}' '{'
+  (actions+=ProductionAction)+
+  '}' parameters=ParametersBlock?;
+
+ProductionCondition:
+  Match | Query | Script | Proxy;
+
+Match:
+  name=[Buffer] '{'
+  isa=IsaBlock
+  (slots+=ComplexSlot)*
+  '}';
+
+Query:
+  '?' name=[Buffer] '{'
+  (slots+=ComplexSlot)*
+  '}';
+
+Proxy:
+  'proxy' '(' name=STRING ')' '{'
+  (slots+=SimpleSlot)*
+  '}';
+
+Script:
+  'script' '(' language=STRING ')' script=CODE;
+
+ProductionAction:
+  Add | Remove | Modify | Script | Proxy | Output;
+
+Add:
+  '+' name=[Buffer] '{'
+  isa=IsaBlock?
+  (slots+=ConditionalSlot)*
+  '}';
+
+Remove:
+  '-' SimpleSlotBlock;
+
+Modify:
+  SimpleSlotBlock;
+
+Output:
+  'output' '(' string=STRING ')';
+
+fragment SimpleSlotBlock:
+  name=[Buffer] '{' (slots+=SimpleSlot)* '}';
+
+IsaBlock:
+  (('isa' type=[ChunkType|QualifiedName]) |
+         (chunk=[ChunkDef|QualifiedName]) |
+         (name=VARIABLE));
+//  (=>Value) | ChunkDef | ChunkType;
+
+  //VariableReference : variable=VARIABLE;
+
+//  /*
+// * Slots
+// */
+SimpleSlot:
+  name=ID '=' value=Value;
+
+enum Condition:
+  EQUALS='=' | LT='<' | LTE='<=' | GT='>' | GTE='>=' | NOT='!=';
+
+ComplexSlot : BooleanOperation | ConditionalSlot;
+
+BooleanOperation:
+  OrSlot | NotSlot | AndSlot;
+
+ConditionalSlot:
+  name=(ID | VARIABLE) condition=Condition value=Value;
+
+OrSlot:
+  {OrSlot} 'or' '{' (slots+=ComplexSlot)* '}';
+
+AndSlot:
+  {AndSlot} 'and' '{' (slots+=ComplexSlot)* '}';
+
+NotSlot:
+  {NotSlot} 'not' '{' (slots+=ComplexSlot)* '}';
+
+  /*
+   * parameter block
+   */
+Parameter:
+  name=STRING ':' value=Value;
+
+ParametersBlock:
+  {ParametersBlock} '[' (parameter+=Parameter)* ']';
+
+Value:
+//  value=(ID | STRING | NUMBER | VARIABLE | BOOLEAN | NULL);
+
+ {Value} (name=(VARIABLE|ID|NULL))| 
+             (string=STRING)| 
+             (number=NUMERIC)| (boolean=BOOLEAN) ;
+// value = [SlotValueReference | QualifiedName];
+
+//ValueReference : ChunkDef | ChunkType | Production | Buffer | VariableReference;
+//PrimitiveReference : NullReference | BooleanReference | NumberReference | StringReference;
+//SlotValueReference : ValueReference | PrimitiveReference;
+
+/*
+   * Constant values
+   */
+
+//NullReference : null?=NULL;
+//BooleanReference : boolean=BOOLEAN;
+//NumberReference : value=NUMERIC;
+//StringReference : string=STRING;
+VARIABLE:
+  '=' ID;
+
+NULL:
+  'null';
+
+BOOLEAN returns ecore::EBooleanObject:
+  'true' | 'false';
+
+NUMERIC returns ecore::EDoubleObject:
+  '-'? DIGITS ('.' DIGITS)?;
+
+OVERRIDE:
+  '@Override';
+
+terminal DIGITS:
+  ('0'..'9')+;
+
+terminal CODE:
+  '<[['->']]>';
+  //
+//  /*
+// * allows visual-location, chunk-12, and other common non-variable names usually 
+// * seen in ACT-R
+// * 
+// */  
+  

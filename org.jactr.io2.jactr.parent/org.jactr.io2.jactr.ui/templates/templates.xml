@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+	<template autoinsert="true"
+		context="org.jactr.io2.jactr.ModelFragment.Production" deleted="false"
+		id="org.jactr.io2.jactr.production"
+		description="Create a production" enabled="true" name="production">
+/*
+ * ${name} 
+ * 
+ */		
+production ${name} {
+  ${buffer:CrossReference('ModelFragment.Buffer')}{
+    isa ${type:CrossReference('ModelFragment.ChunkType')}
+    ${slotName}	= ${slotValue:CrossReference('ModelFragment.ChunkDef')}
+  }
+}{
+  ${cursor}
+}</template>
+	 <template autoinsert="true"
+    context="org.jactr.io2.jactr.ModelFragment.ProductionAction"
+    deleted="false" description="Stop model" enabled="true"
+    id="org.jactr.io2.jactr.stop"
+    name="stop">proxy("org.jactr.core.production.action.StopAction"){}</template>
+  <template autoinsert="true"
+    context="org.jactr.io2.jactr.ModelFragment.ProductionAction"
+    deleted="false" description="Output" enabled="true"
+    id="org.jactr.io2.jactr.output"
+    name="output">output("${cursor}")</template>  
+	<template autoinsert="true"
+		context="org.jactr.io2.jactr.ModelFragment.ProductionCondition"
+		deleted="false" description="Scripted block" enabled="true"
+		id="org.jactr.io2.jactr.scriptedCondition"
+		name="scripted condition">script("javascript")&lt;[[
+function matches()
+{ // http://jact-r.org/node/85
+  ${cursor}
+	return true;
+}
+]]&gt;</template>
+	<template autoinsert="true"
+		context="org.jactr.io2.jactr.ModelFragment.ProductionAction"
+		deleted="false" description="Scripted block" enabled="true"
+		id="org.jactr.io2.jactr.scriptedAction"
+		name="scripted action">script("javascript")&lt;[[
+function fire()
+{ // http://jact-r.org/node/85
+	${cursor}
+	return 0;
+}
+]]&gt;</template>
+</templates>

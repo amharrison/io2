@@ -1,0 +1,63 @@
+namespace jactr.aural {
+import jactr.declarative.*
+
+module "org.jactr.core.module.declarative.six.DefaultDeclarativeModule6" [
+  "ActivationNoise"                  : "0"
+  "BaseLevelConstant"                : "0"
+  "ChunkConfiguratorClass"           : "org.jactr.core.module.declarative.basic.chunk.NoOpChunkConfigurator"
+  "ChunkFactoryClass"                : "org.jactr.core.module.declarative.basic.chunk.DefaultChunkFactory"
+  "ChunkNamerClass"                  : "org.jactr.core.module.declarative.basic.chunk.NoOpChunkNamer"
+  "ChunkTypeConfiguratorClass"       : "org.jactr.core.module.declarative.basic.type.NoOpChunkTypeConfigurator"
+  "ChunkTypeFactoryClass"            : "org.jactr.core.module.declarative.basic.type.DefaultChunkTypeFactory"
+  "ChunkTypeNamerClass"              : "org.jactr.core.module.declarative.basic.type.NoOpChunkTypeNamer"
+  "EnablePartialMatching"            : "false"
+  "MaximumDifference"                : "-1"
+  "MaximumSimilarity"                : "0"
+  "MismatchPenalty"                  : "1"
+  "PermanentActivationNoise"         : "0"
+  "SubsymbolicChunkFactoryClass"     : "org.jactr.core.module.declarative.basic.chunk.DefaultSubsymbolicChunkFactory5"
+  "SubsymbolicChunkTypeFactoryClass" : "org.jactr.core.module.declarative.basic.type.DefaultSubsymbolicChunkTypeFactory"
+  "SymbolicChunkFactoryClass"        : "org.jactr.core.module.declarative.basic.chunk.DefaultSymbolicChunkFactory"
+  "SymbolicChunkTypeFactoryClass"    : "org.jactr.core.module.declarative.basic.type.DefaultSymbolicChunkTypeFactory" ]
+
+buffers {
+  aural-location {} [
+    "Activation"              : "0"
+    "G"                       : "0"
+    "StrictHarvestingEnabled" : "true" ]
+  aural {} [
+    "Activation"              : "0"
+    "G"                       : "0"
+    "StrictHarvestingEnabled" : "true" ]
+}
+
+
+
+chunktype audio-event {
+  kind      = null
+  location  = null
+  onset     = null
+  offset    = null
+  pitch     = null
+  azimuth   = null
+  elevation = null
+}
+
+chunktype sound {
+  content = null
+  event   = null
+  kind    = null
+}
+
+chunktype tone extends sound {pitch = null}
+
+chunktype digit extends sound {}
+
+chunktype speech extends sound {}
+
+chunktype word extends sound {}
+
+chunktype aural-command extends command {} 
+
+chunk external, internal
+}
