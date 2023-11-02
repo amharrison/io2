@@ -101,7 +101,7 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     };
     IterableExtensions.filter(context.getChanges(), _function).forEach(_function_1);
   }
-  
+
   public List<EObject> allVariablesMatchingName(final EObject production, final String name) {
     ArrayList<EObject> _xblockexpression = null;
     {
@@ -123,7 +123,7 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     }
     return _xblockexpression;
   }
-  
+
   public List<EObject> allValuesMatchingName(final EObject root, final String name) {
     ArrayList<EObject> _xblockexpression = null;
     {
@@ -138,7 +138,7 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     }
     return _xblockexpression;
   }
-  
+
   public Collection<ChunkDef> allChunksOf(final EObject root, final Set<ChunkType> hierarchy) {
     HashSet<ChunkDef> _xblockexpression = null;
     {
@@ -154,7 +154,7 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     }
     return _xblockexpression;
   }
-  
+
   public Collection<EObject> allProductionsAgainst(final EObject root, final Set<ChunkType> hierarchy) {
     HashSet<EObject> _xblockexpression = null;
     {
@@ -196,7 +196,7 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     }
     return _xblockexpression;
   }
-  
+
   public List<EObject> allSlotsMatchingNames(final EObject root, final String name) {
     ArrayList<EObject> _xblockexpression = null;
     {
@@ -219,7 +219,7 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     }
     return _xblockexpression;
   }
-  
+
   public boolean isVariable(final Value value) {
     boolean _xblockexpression = false;
     {
@@ -236,12 +236,12 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     }
     return _xblockexpression;
   }
-  
+
   public boolean isID(final Value value) {
     String _name = value.getName();
     return (_name != null);
   }
-  
+
   public HashSet<ChunkType> chunkTypeHierarchy(final ChunkType chunkType) {
     HashSet<ChunkType> _xblockexpression = null;
     {
@@ -258,7 +258,7 @@ public class RenameStrategy extends IRenameStrategy2.DefaultImpl {
     }
     return _xblockexpression;
   }
-  
+
   public Set<ChunkType> chunkTypeDescendents(final ChunkType chunkType) {
     HashSet<ChunkType> _xblockexpression = null;
     {

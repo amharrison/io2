@@ -37,6 +37,8 @@ public class CommentingHiddenTokenSequencer extends HiddenTokenSequencer
       for (String line : text.split("\n"))
         delegate.acceptComment(_grammarAccess.getSL_COMMENTRule(),
             "\n// " + line, null);
+      //temp addition for multiline in jasm
+      //delegate.acceptWhitespace(_grammarAccess.getWSRule(), "\n", null);
     });
     _commentToWrite = Optional.empty();
     super.emitHiddenTokens(hiddens);

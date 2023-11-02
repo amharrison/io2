@@ -18,14 +18,12 @@
       <import plugin="org.jactr.osgi"/>
       <import plugin="org.commonreality.api" version="1.5.1" match="greaterOrEqual"/>
       <import plugin="org.commonreality.core" version="1.5.1" match="greaterOrEqual"/>
-      <import plugin="org.apache.log4j" version="1.2.15" match="greaterOrEqual"/>
       <import plugin="org.eclipse.collections" version="9.2.0" match="greaterOrEqual"/>
       <import plugin="javax.annotation" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.slf4j.api"/>
       <import plugin="org.eclipse.xtext.ide"/>
       <import plugin="org.eclipse.xtext.xbase.ide"/>
       <import plugin="org.eclipse.jdt.core"/>
-      <import plugin="org.eclipse.pde.core"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.xtext.ui.shared"/>
@@ -40,13 +38,11 @@
       <import plugin="org.eclipse.jdt.debug.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.ui.forms"/>
-      <import plugin="org.jactr.io2.jactr" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.jactr.io2.jactr.ide" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="javax.inject"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.jactr.io" version="2.5.1" match="greaterOrEqual"/>
       <import plugin="org.jactr.tools" version="2.5.1" match="greaterOrEqual"/>
       <import plugin="org.antlr.runtime" version="3.2.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.pde" version="3.15.100.v20230903-1000"/>
    </requires>
 
    <plugin

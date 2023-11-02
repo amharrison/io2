@@ -1,6 +1,6 @@
 package org.jactr.io2.jactr.ui.hyperlink
 
-import javax.inject.Inject
+import com.google.inject.Inject
 import org.eclipse.core.runtime.IStatus
 import org.eclipse.core.runtime.Status
 import org.eclipse.emf.ecore.EObject

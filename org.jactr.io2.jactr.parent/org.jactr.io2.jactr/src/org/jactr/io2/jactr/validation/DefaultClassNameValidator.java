@@ -4,14 +4,14 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import javax.inject.Inject;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.IContainer;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
 import org.jactr.core.model.IModel;
+
+import com.google.inject.Inject;
 
 public class DefaultClassNameValidator implements IClassNameValidator
 {

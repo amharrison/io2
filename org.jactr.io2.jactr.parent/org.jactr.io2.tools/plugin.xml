@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.jactr.core.instruments">
+         point="org.jactr.osgi.instruments">
       <instrument
             class="org.jactr.io2.tools.comp.ProductionCompilationListener"
             hidden="false"

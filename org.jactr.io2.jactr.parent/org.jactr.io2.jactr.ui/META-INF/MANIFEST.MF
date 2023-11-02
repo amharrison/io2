@@ -6,35 +6,30 @@ Bundle-Vendor: jact-r.org
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.jactr.io2.jactr.ui;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext.ui,
- org.eclipse.xtext.ui.shared,
+Require-Bundle: org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.ui.editors;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0",
- org.eclipse.ui,
+ org.eclipse.ui.ide,
  org.eclipse.compare,
  org.eclipse.xtext.builder,
- org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
- org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
  org.eclipse.xtext.xbase.ui,
  org.eclipse.xtext.common.types.ui,
- org.eclipse.jdt.debug.ui,
  org.eclipse.jdt.core,
+ org.jactr.io2.jactr;bundle-version="1.0.0",
+ org.jactr.io2.jactr.ide;bundle-version="1.0.0",
+ org.jactr.core;bundle-version="2.5.1",
+ org.jactr.io2,
+ org.jactr.io;bundle-version="2.5.1",
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.pde.core,
  org.eclipse.ui.forms,
- org.jactr.io2.jactr;bundle-version="1.0.0",
- org.jactr.io2.jactr.ide;bundle-version="1.0.0",
- org.eclipse.emf.ecore,
- javax.inject,
- org.eclipse.emf.edit,
- org.jactr.core;bundle-version="2.5.1",
- org.jactr.io2,
- org.jactr.osgi,
- org.jactr.io;bundle-version="2.5.1"
-Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+ com.google.inject
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Eclipse-RegisterBuddy: org.jactr.core
 Export-Package: org.jactr.io2.jactr.ui,
  org.jactr.io2.jactr.ui.contentassist,
@@ -49,3 +44,4 @@ Export-Package: org.jactr.io2.jactr.ui,
  org.jactr.io2.jactr.ui.wizard,
  org.jactr.io2.jactr.validation
 Bundle-Activator: org.jactr.io2.jactr.ui.internal.JactrActivator
+Import-Package: org.apache.log4j

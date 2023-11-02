@@ -3,31 +3,28 @@ Automatic-Module-Name: org.jactr.io2.jactr
 Bundle-ManifestVersion: 2
 Bundle-Name: org.jactr.io2.jactr
 Bundle-Vendor: jACT-R.org
-Bundle-Version: 1.0.0.202104201419
+Bundle-Version: 1.0.0.202310291452
 Bundle-SymbolicName: org.jactr.io2.jactr; singleton:=true
-Bundle-ActivationPolicy: lazy
 Eclipse-RegisterBuddy: org.jactr.core,org.jactr.io,org.jactr.io2,org.jac
  tr.osgi
-Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.xbase,org.eclipse.eq
- uinox.common;bundle-version="3.5.0",org.eclipse.emf.ecore,org.eclipse.x
- text.xbase.lib;bundle-version="2.14.0",org.eclipse.xtext.util,org.eclip
- se.emf.common,org.eclipse.xtend.lib;bundle-version="2.14.0",org.antlr.r
- untime;bundle-version="[3.2.0,3.2.1)",org.jactr.core;bundle-version="2.
- 5.1",org.jactr.io2;bundle-version="2.5.1",org.jactr.osgi,org.commonreal
- ity.api;bundle-version="1.5.1",org.commonreality.core;bundle-version="1
- .5.1",org.apache.log4j;bundle-version="1.2.15",org.eclipse.collections;
- bundle-version="9.2.0",javax.annotation;bundle-version="1.2.0",org.slf4
- j.api
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.xbase,org.jactr.core
+ ,org.jactr.io2,org.jactr.osgi,org.eclipse.collections,org.eclipse.core.
+ runtime;bundle-version="3.29.0",org.eclipse.xtend.core;bundle-version="
+ 2.32.0",org.eclipse.emf.ecore,org.eclipse.xtext.xbase.lib;bundle-versio
+ n="2.14.0",org.eclipse.xtext.util,org.eclipse.emf.common,org.eclipse.xt
+ end.lib;bundle-version="2.14.0",org.antlr.runtime;bundle-version="[3.2.
+ 0,3.2.1)"
 Export-Package: jactr,org.jactr.io2.jactr,org.jactr.io2.jactr.ast,org.ja
  ctr.io2.jactr.builder,org.jactr.io2.jactr.comment,org.jactr.io2.jactr.c
  ompile,org.jactr.io2.jactr.formatting2,org.jactr.io2.jactr.generator,or
  g.jactr.io2.jactr.jvmmodel,org.jactr.io2.jactr.modelFragment,org.jactr.
  io2.jactr.modelFragment.impl,org.jactr.io2.jactr.modelFragment.util,org
- .jactr.io2.jactr.naming,org.jactr.io2.jactr.parser.antlr,org.jactr.io2.
- jactr.parser.antlr.internal,org.jactr.io2.jactr.scoping,org.jactr.io2.j
- actr.serializer,org.jactr.io2.jactr.services,org.jactr.io2.jactr.source
- ,org.jactr.io2.jactr.util,org.jactr.io2.jactr.validation,org.jactr.io2.
- jactr.value
+ .jactr.io2.jactr.naming,org.jactr.io2.jactr.normalize,org.jactr.io2.jac
+ tr.parser.antlr,org.jactr.io2.jactr.parser.antlr.internal,org.jactr.io2
+ .jactr.references,org.jactr.io2.jactr.scoping,org.jactr.io2.jactr.seria
+ lizer,org.jactr.io2.jactr.services,org.jactr.io2.jactr.source,org.jactr
+ .io2.jactr.util,org.jactr.io2.jactr.validation,org.jactr.io2.jactr.valu
+ e
 Import-Package: org.apache.log4j
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=21))"
 

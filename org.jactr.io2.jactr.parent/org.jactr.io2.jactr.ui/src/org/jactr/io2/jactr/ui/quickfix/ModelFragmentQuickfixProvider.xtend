@@ -3,7 +3,7 @@
  */
 package org.jactr.io2.jactr.ui.quickfix
 
-import javax.inject.Inject
+import com.google.inject.Inject
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider

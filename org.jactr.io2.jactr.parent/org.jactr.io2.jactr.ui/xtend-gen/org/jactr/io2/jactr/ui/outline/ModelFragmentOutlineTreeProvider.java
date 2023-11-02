@@ -30,11 +30,11 @@ public class ModelFragmentOutlineTreeProvider extends DefaultOutlineTreeProvider
   protected boolean _isLeaf(final SimpleSlot slot) {
     return true;
   }
-  
+
   protected boolean _isLeaf(final ConditionalSlot slot) {
     return true;
   }
-  
+
   protected void _createChildren(final IOutlineNode outlineNode, final PackageDeclaration dec) {
     final Consumer<ModelModule> _function = (ModelModule n) -> {
       this.createNode(outlineNode, n);
@@ -63,13 +63,13 @@ public class ModelFragmentOutlineTreeProvider extends DefaultOutlineTreeProvider
     };
     dec.getElements().forEach(_function_3);
   }
-  
+
   protected void _createChildren(final IOutlineNode outlineNode, final SimpleSlot slot) {
   }
-  
+
   protected void _createChildren(final IOutlineNode outlineNode, final ConditionalSlot slot) {
   }
-  
+
   public boolean isLeaf(final Object slot) {
     if (slot instanceof ConditionalSlot) {
       return _isLeaf((ConditionalSlot)slot);
@@ -84,7 +84,7 @@ public class ModelFragmentOutlineTreeProvider extends DefaultOutlineTreeProvider
         Arrays.<Object>asList(slot).toString());
     }
   }
-  
+
   public void createChildren(final IOutlineNode outlineNode, final EObject slot) {
     if (outlineNode instanceof DocumentRootNode
          && slot != null) {

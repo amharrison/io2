@@ -191,15 +191,15 @@ public class ModelStubs {
     _builder.newLine();
     return _builder;
   }
-  
+
   public static List<String> basicModelDependencies() {
     return Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("org.jactr.core", "org.jactr.io", "org.jactr.tools", "org.jactr.tools.experiment", "org.jactr.io2.jactr"));
   }
-  
+
   public static List<String> embodiedModelDependencies() {
     return Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList("org.jactr.core", "org.jactr.io", "org.jactr.tools", "org.jactr.tools.experiment", "org.jactr.io2.jactr", "org.commonreality.api", "org.commonreality.sensors", "org.commonreality.sensors.xml"));
   }
-  
+
   public static CharSequence embodiedModel(final String name) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("/*");

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature id="org.jactr.io2.jactr.feature.source" version="1.0.0.202104201419" label="jACT-R IO2 Developer Resources">
-  <includes id="org.jactr.io2.jactr.feature" version="1.0.0.202104201419"/>
-  <plugin id="org.jactr.io2.jactr.source" version="1.0.0.202104201419" download-size="0" install-size="0" unpack="false"/>
-  <plugin id="org.jactr.io2.jactr.ide.source" version="1.0.0.202104201419" download-size="0" install-size="0" unpack="false"/>
-  <plugin id="org.jactr.io2.jactr.ui.source" version="1.0.0.202104201419" download-size="0" install-size="0" unpack="false"/>
-  <plugin id="org.jactr.io2.tools.source" version="1.0.0.202104201419" download-size="0" install-size="0" unpack="false"/>
+<feature id="org.jactr.io2.jactr.feature.source" version="1.0.0.202310291452" label="jACT-R IO2 Developer Resources">
+  <includes id="org.jactr.io2.jactr.feature" version="1.0.0.202310291452"/>
+  <plugin id="org.jactr.io2.jactr.source" version="1.0.0.202310291452" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.jactr.io2.jactr.ide.source" version="1.0.0.202310291452" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.jactr.io2.jactr.ui.source" version="1.0.0.202310291452" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="org.jactr.io2.tools.source" version="1.0.0.202310291452" download-size="0" install-size="0" unpack="false"/>
 </feature>

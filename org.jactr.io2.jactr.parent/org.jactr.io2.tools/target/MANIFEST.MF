@@ -3,7 +3,7 @@ Automatic-Module-Name: org.jactr.io2.xtext.ui
 Bundle-ManifestVersion: 2
 Bundle-Name: org.jactr.io2.tools
 Bundle-Vendor: jact-r.org
-Bundle-Version: 1.0.0.202104201419
+Bundle-Version: 1.0.0.202310291452
 Bundle-SymbolicName: org.jactr.io2.tools;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.jactr.core;bundle-version="2.5.1",org.jactr.io;bundl
@@ -12,8 +12,8 @@ Require-Bundle: org.jactr.core;bundle-version="2.5.1",org.jactr.io;bundl
  ntlr.runtime;bundle-version="3.2.0",org.eclipse.emf.common,org.eclipse.
  emf.ecore
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-11
 Eclipse-RegisterBuddy: org.jactr.core,org.jactr.tools,org.jactr.io,org.j
  actr.io2
 Export-Package: org.jactr.io2.tools.iterative.ortho
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=21))"
 

@@ -4,8 +4,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-import javax.inject.Inject;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -17,6 +15,7 @@ import org.jactr.core.model.IModel;
 import org.jactr.io2.jactr.modelFragment.Import;
 import org.jactr.io2.jactr.modelFragment.ModelFragment;
 
+import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 public class LoadDelegate implements Callable<ModelFragment>

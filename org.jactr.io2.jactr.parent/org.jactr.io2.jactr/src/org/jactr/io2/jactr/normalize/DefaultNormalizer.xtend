@@ -1,8 +1,9 @@
 package org.jactr.io2.jactr.normalize
 
+import com.google.inject.Inject
 import com.google.inject.Provider
 import java.io.File
-import javax.inject.Inject
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.jactr.core.model.IModel
@@ -11,7 +12,6 @@ import org.jactr.io2.jactr.modelFragment.ModelFragment
 import org.jactr.io2.jactr.modelFragment.ModelFragmentFactory
 import org.jactr.io2.jactr.modelFragment.Parameters
 import org.jactr.io2.jactr.util.IO2Utilities
-import org.eclipse.emf.common.util.URI
 
 class DefaultNormalizer implements INormalizer {
 

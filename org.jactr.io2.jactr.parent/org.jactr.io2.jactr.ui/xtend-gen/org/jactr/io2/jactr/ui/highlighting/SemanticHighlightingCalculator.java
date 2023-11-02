@@ -1,7 +1,7 @@
 package org.jactr.io2.jactr.ui.highlighting;
 
+import com.google.inject.Inject;
 import java.util.List;
-import javax.inject.Inject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.IHighlightedPositionAcceptor;
@@ -32,7 +32,7 @@ public class SemanticHighlightingCalculator extends DefaultSemanticHighlightingC
   @Inject
   @Extension
   private ModelFragmentUtil _modelFragmentUtil;
-  
+
   /**
    * return true to skip children
    */

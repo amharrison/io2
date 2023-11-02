@@ -23,7 +23,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class ModelFragmentParsingTest {
   @Inject
   private ParseHelper<ModelFragment> parseHelper;
-  
+
   @Test
   public void loadModel() {
     try {

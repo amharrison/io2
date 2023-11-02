@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import javax.inject.Inject;
-import javax.inject.Provider;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -23,7 +20,9 @@ import org.jactr.io2.jactr.modelFragment.ModelFragment;
 import org.jactr.io2.jactr.source.ISourceLocator;
 import org.jactr.io2.jactr.ui.internal.JactrActivator;
 
+import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Provider;
 
 public class JactrUIUtilities
 {

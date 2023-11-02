@@ -59,47 +59,59 @@ import org.jactr.io2.jactr.modelFragment.SimpleSlot;
 @SuppressWarnings("all")
 public class ModelFragmentFormatter extends AbstractFormatter2 {
   private boolean _tabularProductions = true;
-  
+
   private boolean _tabularParameters = true;
-  
+
   protected void _format(final ModelFragment modelFragment, @Extension final IFormattableDocument document) {
     document.<PackageDeclaration>format(modelFragment.getPackage());
     document.<ParametersBlock>format(modelFragment.getPackage().getParameters());
   }
-  
+
   protected void _format(final PackageDeclaration dec, @Extension final IFormattableDocument document) {
     EList<Import> _imports = dec.getImports();
     for (final Import imp : _imports) {
       document.<Import>format(imp);
     }
-    Import _last = IterableExtensions.<Import>last(dec.getImports());
-    if (_last!=null) {
-      final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
-        it.setNewLines(1, 2, 3);
-      };
-      document.<Import>append(_last, _function);
+    int _size = dec.getImports().size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      Import _last = dec.getImports().getLast();
+      if (_last!=null) {
+        final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
+          it.setNewLines(1, 2, 3);
+        };
+        document.<Import>append(_last, _function);
+      }
     }
     EList<ModelModule> _modules = dec.getModules();
     for (final ModelModule module : _modules) {
       document.<ModelModule>format(module);
     }
-    ModelModule _last_1 = IterableExtensions.<ModelModule>last(dec.getModules());
-    if (_last_1!=null) {
-      final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
-        it.setNewLines(1, 2, 3);
-      };
-      document.<ModelModule>append(_last_1, _function_1);
+    int _size_1 = dec.getModules().size();
+    boolean _greaterThan_1 = (_size_1 > 0);
+    if (_greaterThan_1) {
+      ModelModule _last_1 = dec.getModules().getLast();
+      if (_last_1!=null) {
+        final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
+          it.setNewLines(1, 2, 3);
+        };
+        document.<ModelModule>append(_last_1, _function_1);
+      }
     }
     EList<ModelExtension> _extensions = dec.getExtensions();
     for (final ModelExtension ext : _extensions) {
       document.<ModelExtension>format(ext);
     }
-    ModelExtension _last_2 = IterableExtensions.<ModelExtension>last(dec.getExtensions());
-    if (_last_2!=null) {
-      final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
-        it.setNewLines(1, 2, 3);
-      };
-      document.<ModelExtension>append(_last_2, _function_2);
+    int _size_2 = dec.getExtensions().size();
+    boolean _greaterThan_2 = (_size_2 > 0);
+    if (_greaterThan_2) {
+      ModelExtension _last_2 = dec.getExtensions().getLast();
+      if (_last_2!=null) {
+        final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
+          it.setNewLines(1, 2, 3);
+        };
+        document.<ModelExtension>append(_last_2, _function_2);
+      }
     }
     document.<Buffers>format(dec.getBuffers());
     EList<Element> _elements = dec.getElements();
@@ -107,7 +119,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<Element>format(element);
     }
   }
-  
+
   protected void _format(final Buffers buffers, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -128,7 +140,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<Buffer>append(document.<Buffer>format(buffer), _function_3);
     }
   }
-  
+
   protected void _format(final Buffer buffer, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -168,14 +180,14 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     }
     document.<ParametersBlock>format(buffer.getParameters());
   }
-  
+
   protected void _format(final Import imp, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 1, 1);
     };
     document.<Import>prepend(imp, _function);
   }
-  
+
   protected void _format(final ModelExtension ext, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -187,7 +199,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<ParametersBlock>format(ext.getParameters());
     }
   }
-  
+
   protected void _format(final ModelModule module, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -199,7 +211,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<ParametersBlock>format(module.getParameters());
     }
   }
-  
+
   protected void _format(final Chunks chunk, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -237,7 +249,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<ChunkDef>format(c);
     }
   }
-  
+
   protected void _format(final Parameters parameters, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -260,7 +272,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     }
     document.<ParametersBlock>format(parameters.getParameters());
   }
-  
+
   /**
    * chunk & type formatting
    */
@@ -285,7 +297,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     }
     document.<ParametersBlock>format(chunk.getParameters());
   }
-  
+
   protected void _format(final ChunkType chunkType, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -355,7 +367,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     }
     document.<ParametersBlock>format(chunkType.getParameters());
   }
-  
+
   /**
    * Parameter formatting
    */
@@ -451,7 +463,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       }
     }
   }
-  
+
   /**
    * Slot formatting
    */
@@ -515,7 +527,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       }
     }
   }
-  
+
   protected void _format(final ConditionalSlot slot, @Extension final IFormattableDocument document) {
     if ((!this._tabularProductions)) {
       final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
@@ -574,7 +586,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       }
     }
   }
-  
+
   protected void _format(final OrSlot slotBlock, @Extension final IFormattableDocument document) {
     int _size = slotBlock.getSlots().size();
     boolean _greaterThan = (_size > 1);
@@ -604,7 +616,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       }
     }
   }
-  
+
   protected void _format(final AndSlot slotBlock, @Extension final IFormattableDocument document) {
     int _size = slotBlock.getSlots().size();
     boolean _greaterThan = (_size > 1);
@@ -634,7 +646,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       }
     }
   }
-  
+
   protected void _format(final NotSlot slotBlock, @Extension final IFormattableDocument document) {
     int _size = slotBlock.getSlots().size();
     boolean _greaterThan = (_size > 1);
@@ -664,7 +676,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       }
     }
   }
-  
+
   protected void _format(final Production production, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.setNewLines(1, 2, 3);
@@ -674,7 +686,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     for (final ProductionCondition condition : _conditions) {
       document.<ProductionCondition>format(condition);
     }
-    Pair<ISemanticRegion, ISemanticRegion> pair = IterableExtensions.<Pair<ISemanticRegion, ISemanticRegion>>last(this.textRegionExtensions.regionFor(production).keywordPairs("}", "{"));
+    Pair<ISemanticRegion, ISemanticRegion> pair = this.textRegionExtensions.regionFor(production).keywordPairs("}", "{").getLast();
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       it.noSpace();
     };
@@ -689,7 +701,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     }
     document.<ParametersBlock>format(production.getParameters());
   }
-  
+
   protected void _format(final Match pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -712,7 +724,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<ComplexSlot>prepend(document.<ComplexSlot>format(slot), _function_3);
     }
   }
-  
+
   protected void _format(final Query pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -735,7 +747,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<ComplexSlot>prepend(document.<ComplexSlot>format(slot), _function_3);
     }
   }
-  
+
   protected void _format(final Add pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -762,7 +774,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<ConditionalSlot>prepend(document.<ConditionalSlot>format(slot), _function_4);
     }
   }
-  
+
   protected void _format(final Modify pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -781,7 +793,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<SimpleSlot>prepend(document.<SimpleSlot>format(slot), _function_2);
     }
   }
-  
+
   protected void _format(final Remove pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -804,7 +816,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<SimpleSlot>prepend(document.<SimpleSlot>format(slot), _function_3);
     }
   }
-  
+
   protected void _format(final Output pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -815,7 +827,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     };
     document.<Output>surround(pa, _function_1);
   }
-  
+
   protected void _format(final Script pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -826,7 +838,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
     };
     document.<Script>surround(pa, _function_1);
   }
-  
+
   protected void _format(final Proxy pa, @Extension final IFormattableDocument document) {
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
@@ -845,7 +857,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<SimpleSlot>prepend(document.<SimpleSlot>format(slot), _function_2);
     }
   }
-  
+
   public void formatBraces(final EObject object, @Extension final IFormattableDocument document) {
     int _size = IteratorExtensions.size(object.eAllContents());
     boolean _greaterThan = (_size > 0);
@@ -870,7 +882,7 @@ public class ModelFragmentFormatter extends AbstractFormatter2 {
       document.<ISemanticRegion, ISemanticRegion>interior(this.textRegionExtensions.regionFor(object).keyword("{"), this.textRegionExtensions.regionFor(object).keyword("}"), _function_4);
     }
   }
-  
+
   public void format(final Object slotBlock, final IFormattableDocument document) {
     if (slotBlock instanceof XtextResource) {
       _format((XtextResource)slotBlock, document);

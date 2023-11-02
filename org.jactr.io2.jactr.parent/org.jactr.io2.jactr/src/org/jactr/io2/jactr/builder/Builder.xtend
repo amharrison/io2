@@ -1,13 +1,13 @@
 package org.jactr.io2.jactr.builder
 
 import com.google.common.collect.Lists
+import com.google.inject.Inject
 import java.util.Collections
 import java.util.List
 import java.util.Map
 import java.util.Set
 import java.util.TreeSet
 import java.util.function.BiConsumer
-import javax.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.jactr.core.chunk.IChunk
@@ -69,12 +69,13 @@ import org.jactr.io2.jactr.validation.ModelFragmentUtil
 import org.jactr.scripting.ScriptingManager
 import org.jactr.scripting.action.ScriptableAction
 import org.jactr.scripting.condition.ScriptableCondition
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+
+//import org.slf4j.Logger
+//import org.slf4j.LoggerFactory
 
 class Builder {
 
-  static transient Logger LOGGER = LoggerFactory.getLogger(Builder)
+//  static transient Logger LOGGER = LoggerFactory.getLogger(Builder)
 
   @Inject extension ModelFragmentUtil
 
@@ -311,7 +312,7 @@ class Builder {
     if (resolvedByContext !== null)
       return resolvedByContext
 
-    LOGGER.debug(String.format("Unresolved slot value %s", value))
+//    LOGGER.debug(String.format("Unresolved slot value %s", value))
     return value
   }
 
@@ -371,7 +372,7 @@ class Builder {
 
       _context.encodeChunkType(chunkType.name)
 
-      LOGGER.debug(String.format("Resolved %s", chunkType.name))
+//      LOGGER.debug(String.format("Resolved %s", chunkType.name))
 
       stage4ProvisionChunks(chunkType, chunkSymbols)
       return true
@@ -392,7 +393,7 @@ class Builder {
       if ((chunk.eContainer as Chunks).type.name == chunkType.name) {
         val provisionalChunk = FluentChunk.from(_context.getChunkType(chunkType.name)).named(chunk.name).build
         _context.add(provisionalChunk)
-        LOGGER.debug(String.format("Provisioned %s", chunk.name))
+//        LOGGER.debug(String.format("Provisioned %s", chunk.name))
       }
     ]
   }
@@ -417,7 +418,7 @@ class Builder {
        */
       if (!chunksToNotEncode.contains(chunk.name)) {
         _context.encodeChunk(chunk.name)
-        LOGGER.debug(String.format("Resolved %s", chunk.name))
+//        LOGGER.debug(String.format("Resolved %s", chunk.name))
       }
 
 // parameters are done once all the chunks have been resolved, this way we

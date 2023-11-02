@@ -1,18 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='4'>
-  <unit id='org.jactr.io2.jactr.feature.feature.group' version='1.0.0.202104201419' singleton='false'>
-    <update id='org.jactr.io2.jactr.feature.feature.group' range='[0.0.0,1.0.0.202104201419)' severity='0'/>
-    <properties size='5'>
+  <unit id='org.jactr.io2.jactr.feature.feature.group' version='1.0.0.202310291452' singleton='false'>
+    <update id='org.jactr.io2.jactr.feature.feature.group' range='[0.0.0,1.0.0.202310291452)' severity='0'/>
+    <properties size='6'>
       <property name='org.eclipse.equinox.p2.name' value='jACT-R IO2'/>
       <property name='org.eclipse.equinox.p2.type.group' value='true'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr.feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-type' value='eclipse-feature'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.group' version='1.0.0.202104201419'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.group' version='1.0.0.202310291452'/>
     </provides>
-    <requires size='47'>
+    <requires size='43'>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtext' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtext.xbase' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.equinox.common' range='3.5.0'/>
@@ -26,14 +27,12 @@
       <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.osgi' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.commonreality.api' range='1.5.1'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.commonreality.core' range='1.5.1'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.log4j' range='1.2.15'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.collections' range='9.2.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='javax.annotation' range='1.2.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.slf4j.api' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtext.ide' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtext.xbase.ide' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core' range='0.0.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.pde.core' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtext.ui' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtext.ui.shared' range='0.0.0'/>
@@ -48,18 +47,16 @@
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug.ui' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.forms' range='0.0.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr' range='1.0.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ide' range='1.0.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='javax.inject' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io' range='2.5.1'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.tools' range='2.5.1'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.antlr.runtime' range='3.2.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ide' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ui' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.tools' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.jar' range='[1.0.0.202104201419,1.0.0.202104201419]'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.pde.feature.group' range='0.0.0'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ide' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ui' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.tools' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.jar' range='[1.0.0.202310291452,1.0.0.202310291452]'>
         <filter>
           (org.eclipse.update.install.features=true)
         </filter>
@@ -67,23 +64,24 @@
     </requires>
     <touchpoint id='null' version='0.0.0'/>
   </unit>
-  <unit id='org.jactr.io2.jactr.feature.feature.jar' version='1.0.0.202104201419'>
-    <properties size='4'>
+  <unit id='org.jactr.io2.jactr.feature.feature.jar' version='1.0.0.202310291452'>
+    <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='jACT-R IO2'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr.feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-type' value='eclipse-feature'/>
     </properties>
     <provides size='3'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.jar' version='1.0.0.202104201419'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.jar' version='1.0.0.202310291452'/>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-      <provided namespace='org.eclipse.update.feature' name='org.jactr.io2.jactr.feature' version='1.0.0.202104201419'/>
+      <provided namespace='org.eclipse.update.feature' name='org.jactr.io2.jactr.feature' version='1.0.0.202310291452'/>
     </provides>
     <filter>
       (org.eclipse.update.install.features=true)
     </filter>
     <artifacts size='1'>
-      <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature' version='1.0.0.202104201419'/>
+      <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature' version='1.0.0.202310291452'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
@@ -94,26 +92,27 @@
       </instructions>
     </touchpointData>
   </unit>
-  <unit id='org.jactr.io2.jactr.feature.source.feature.group' version='1.0.0.202104201419' singleton='false'>
-    <update id='org.jactr.io2.jactr.feature.source.feature.group' range='[0.0.0,1.0.0.202104201419)' severity='0'/>
-    <properties size='6'>
+  <unit id='org.jactr.io2.jactr.feature.source.feature.group' version='1.0.0.202310291452' singleton='false'>
+    <update id='org.jactr.io2.jactr.feature.source.feature.group' range='[0.0.0,1.0.0.202310291452)' severity='0'/>
+    <properties size='7'>
       <property name='org.eclipse.equinox.p2.name' value='jACT-R IO2 Developer Resources'/>
       <property name='org.eclipse.equinox.p2.type.group' value='true'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr.feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       <property name='maven-classifier' value='sources-feature'/>
+      <property name='maven-type' value='eclipse-feature'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.source.feature.group' version='1.0.0.202104201419'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.source.feature.group' version='1.0.0.202310291452'/>
     </provides>
     <requires size='6'>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.group' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.source' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ide.source' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ui.source' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.tools.source' range='[1.0.0.202104201419,1.0.0.202104201419]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.source.feature.jar' range='[1.0.0.202104201419,1.0.0.202104201419]'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.feature.group' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.source' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ide.source' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.ui.source' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.tools.source' range='[1.0.0.202310291452,1.0.0.202310291452]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.source.feature.jar' range='[1.0.0.202310291452,1.0.0.202310291452]'>
         <filter>
           (org.eclipse.update.install.features=true)
         </filter>
@@ -121,24 +120,25 @@
     </requires>
     <touchpoint id='null' version='0.0.0'/>
   </unit>
-  <unit id='org.jactr.io2.jactr.feature.source.feature.jar' version='1.0.0.202104201419'>
-    <properties size='5'>
+  <unit id='org.jactr.io2.jactr.feature.source.feature.jar' version='1.0.0.202310291452'>
+    <properties size='6'>
       <property name='org.eclipse.equinox.p2.name' value='jACT-R IO2 Developer Resources'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr.feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       <property name='maven-classifier' value='sources-feature'/>
+      <property name='maven-type' value='eclipse-feature'/>
     </properties>
     <provides size='3'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.source.feature.jar' version='1.0.0.202104201419'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.jactr.io2.jactr.feature.source.feature.jar' version='1.0.0.202310291452'/>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-      <provided namespace='org.eclipse.update.feature' name='org.jactr.io2.jactr.feature.source' version='1.0.0.202104201419'/>
+      <provided namespace='org.eclipse.update.feature' name='org.jactr.io2.jactr.feature.source' version='1.0.0.202310291452'/>
     </provides>
     <filter>
       (org.eclipse.update.install.features=true)
     </filter>
     <artifacts size='1'>
-      <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature.source' version='1.0.0.202104201419'/>
+      <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature.source' version='1.0.0.202310291452'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>

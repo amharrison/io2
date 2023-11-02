@@ -3,13 +3,12 @@ Automatic-Module-Name: org.jactr.io2.jactr.ide
 Bundle-ManifestVersion: 2
 Bundle-Name: org.jactr.io2.jactr.ide
 Bundle-Vendor: jactr.org
-Bundle-Version: 1.0.0.202104201419
+Bundle-Version: 1.0.0.202310291452
 Bundle-SymbolicName: org.jactr.io2.jactr.ide; singleton:=true
-Bundle-ActivationPolicy: lazy
-Require-Bundle: org.jactr.io2.jactr,org.eclipse.xtext.ide,org.eclipse.xt
- ext.xbase.ide,org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",org.ecli
- pse.jdt.core,org.eclipse.pde.core,org.eclipse.core.resources
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.xtext.ide,org.eclipse.xtext.xbase.ide,org.an
+ tlr.runtime;bundle-version="[3.2.0,3.2.1)",org.eclipse.jdt.core,org.ecl
+ ipse.core.resources,org.jactr.io2.jactr
 Export-Package: org.jactr.io2.jactr.ide.contentassist.antlr.internal,org
  .jactr.io2.jactr.ide.contentassist.antlr
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=21))"
 

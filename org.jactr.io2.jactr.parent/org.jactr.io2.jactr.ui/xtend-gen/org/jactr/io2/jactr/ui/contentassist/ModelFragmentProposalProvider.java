@@ -55,16 +55,16 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
   @Inject
   @Extension
   private ModelFragmentUtil _modelFragmentUtil;
-  
+
   @Inject
   private IImageHelper _imageHelper;
-  
+
   @Inject
   private IClassNameValidator _validator;
-  
+
   @Inject
   private ContentAssistUtils _util;
-  
+
   @Override
   public void completeChunkDef_Slots(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     if ((model instanceof ChunkDef)) {
@@ -75,7 +75,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeChunkDef_Slots(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeParameters_Elements(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final LinkedListMultimap<String, IEObjectDescription> chunks = this._modelFragmentUtil.chunkSymbolTable(model);
@@ -91,7 +91,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeParameters_Elements(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeMatch_Slots(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     Set<String> candidateSlots = Collections.<String>emptySet();
@@ -116,7 +116,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeMatch_Slots(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeAdd_Slots(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     Set<String> candidateSlots = Collections.<String>emptySet();
@@ -141,7 +141,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeAdd_Slots(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeOrSlot_Slots(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final HashSet<String> candidateSlots = this._modelFragmentUtil.guessSlots(model);
@@ -150,7 +150,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeOrSlot_Slots(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeAndSlot_Slots(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final HashSet<String> candidateSlots = this._modelFragmentUtil.guessSlots(model);
@@ -159,7 +159,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeAndSlot_Slots(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeNotSlot_Slots(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final HashSet<String> candidateSlots = this._modelFragmentUtil.guessSlots(model);
@@ -168,7 +168,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeNotSlot_Slots(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeSimpleSlotBlock_Slots(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     if ((model instanceof SimpleSlotBlock)) {
@@ -197,7 +197,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeSimpleSlotBlock_Slots(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeSimpleSlot_Value(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final LinkedListMultimap<String, IEObjectDescription> chunks = this._modelFragmentUtil.chunkSymbolTable(model);
@@ -207,7 +207,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeSimpleSlot_Value(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeConditionalSlot_Value(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final LinkedListMultimap<String, IEObjectDescription> chunks = this._modelFragmentUtil.chunkSymbolTable(model);
@@ -217,7 +217,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeConditionalSlot_Value(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeValue_Name(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     try {
@@ -236,7 +236,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeValue_Name(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeModelModule_ModuleClass(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final URI uri = model.eResource().getURI();
@@ -259,7 +259,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     subtypes.stream().filter(_function).forEach(_function_1);
     super.completeModelModule_ModuleClass(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeModelExtension_ExtensionClass(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final URI uri = model.eResource().getURI();
@@ -282,7 +282,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     subtypes.stream().filter(_function).forEach(_function_1);
     super.completeModelExtension_ExtensionClass(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeProxy_Name(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     String className = "";
@@ -317,7 +317,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeProxy_Name(model, assignment, context, acceptor);
   }
-  
+
   @Override
   public void completeParameter_Name(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject pContainer = model.eContainer();
@@ -350,7 +350,7 @@ public class ModelFragmentProposalProvider extends AbstractModelFragmentProposal
     }
     super.completeParameter_Name(model, assignment, context, acceptor);
   }
-  
+
   public Collection<String> getParametersFromInstantiation(final EObject model, final String className) {
     try {
       boolean _isValidClassName = this._validator.isValidClassName(model.eResource(), className);

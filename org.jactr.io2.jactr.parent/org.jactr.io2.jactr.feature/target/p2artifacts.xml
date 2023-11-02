@@ -1,24 +1,32 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='2'>
-  <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature' version='1.0.0.202104201419'>
-    <properties size='6'>
-      <property name='artifact.size' value='1013'/>
-      <property name='download.size' value='1013'/>
+  <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature' version='1.0.0.202310291452'>
+    <properties size='10'>
+      <property name='artifact.size' value='1002'/>
+      <property name='download.size' value='1002'/>
+      <property name='download.checksum.sha-512' value='69fbf66647f113c93fa770a00aea2c48f1dcc73b8969db9caa9a4f3d8790d9d42b93e1d8f57a3ff01b359dd10d73e7e22d51ba7150d794fe5e217eaad75b4ba8'/>
+      <property name='download.checksum.sha-1' value='8f06c98bc79143bfd4ca5491f95f4cf9e70325c1'/>
+      <property name='download.checksum.sha-256' value='5e2b40dca3e4438a9cc581f0cf3156acf6d9176a9267ba9013a21d48db07ccdd'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr.feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-type' value='eclipse-feature'/>
       <property name='download.contentType' value='application/zip'/>
     </properties>
   </artifact>
-  <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature.source' version='1.0.0.202104201419'>
-    <properties size='7'>
-      <property name='artifact.size' value='1990'/>
-      <property name='download.size' value='1990'/>
+  <artifact classifier='org.eclipse.update.feature' id='org.jactr.io2.jactr.feature.source' version='1.0.0.202310291452'>
+    <properties size='11'>
+      <property name='artifact.size' value='2679'/>
+      <property name='download.size' value='2679'/>
+      <property name='download.checksum.sha-512' value='5a7b86896a6f6b82da44344503c5b30536c2107bf01dbb1e763262eca9750c15d035b2f4061b72168c3b62c28a04edea4d117b0e70700e9f794523a59bc04203'/>
+      <property name='download.checksum.sha-1' value='add5837b2414274be44493d7a481951fb4f5666b'/>
+      <property name='download.checksum.sha-256' value='6ebaa4b181e95096ceb21ce5229f509b2f7ad5a1ccc7caca5b866a83a3c52ef3'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr.feature'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       <property name='maven-classifier' value='sources-feature'/>
+      <property name='maven-type' value='eclipse-feature'/>
       <property name='download.contentType' value='application/zip'/>
     </properties>
   </artifact>

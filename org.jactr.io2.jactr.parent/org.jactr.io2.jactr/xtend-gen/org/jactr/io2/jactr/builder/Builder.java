@@ -2,6 +2,7 @@ package org.jactr.io2.jactr.builder;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,7 +15,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
-import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
@@ -93,19 +93,15 @@ import org.jactr.scripting.action.IActionScript;
 import org.jactr.scripting.action.ScriptableAction;
 import org.jactr.scripting.condition.IConditionScript;
 import org.jactr.scripting.condition.ScriptableCondition;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("all")
 public class Builder {
-  private static transient Logger LOGGER = LoggerFactory.getLogger(Builder.class);
-  
   @Inject
   @Extension
   private ModelFragmentUtil _modelFragmentUtil;
-  
+
   private BuilderContext _context = new BuilderContext();
-  
+
   protected void assignParameters(final IParameterized parameterized, final ParametersBlock parameters) {
     if ((parameters != null)) {
       EList<Parameter> _parameter = parameters.getParameter();
@@ -133,7 +129,7 @@ public class Builder {
       }
     }
   }
-  
+
   public IModel build(final ModelFragment fragment) {
     try {
       IModel _xblockexpression = null;
@@ -162,7 +158,7 @@ public class Builder {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected TreeSet<String> findBufferContents(final Map<String, EObject> bufferSymbols) {
     TreeSet<String> _xblockexpression = null;
     {
@@ -185,7 +181,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected void stage7Buffers(final ModelFragment fragment, final Map<String, EObject> bufferSymbols) {
     final Function1<EObject, Buffer> _function = (EObject o) -> {
       return ((Buffer) o);
@@ -223,14 +219,14 @@ public class Builder {
     };
     IterableExtensions.<EObject, Buffer>map(bufferSymbols.values(), _function_3).forEach(_function_4);
   }
-  
+
   protected void stage10Extensions(final ModelFragment fragment) {
     final Consumer<ModelExtension> _function = (ModelExtension ext) -> {
       this.instantiateExtension(ext);
     };
     fragment.getPackage().getExtensions().forEach(_function);
   }
-  
+
   protected void instantiateExtension(final ModelExtension ext) {
     final String className = ext.getExtensionClass();
     try {
@@ -250,7 +246,7 @@ public class Builder {
       }
     }
   }
-  
+
   /**
    * instantiate the modules and install
    */
@@ -274,7 +270,7 @@ public class Builder {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected void stage2ChunkTypes(final ModelFragment fragment, final Map<String, EObject> chunkTypeSymbols) {
     final Function1<EObject, ChunkType> _function = (EObject n) -> {
       return ((ChunkType) n);
@@ -284,7 +280,7 @@ public class Builder {
     };
     IterableExtensions.<EObject, ChunkType>map(chunkTypeSymbols.values(), _function).forEach(_function_1);
   }
-  
+
   /**
    * provisionally create the chunktype, but leave its slot values unset, stash
    * in context for later processing (stage4)
@@ -315,7 +311,7 @@ public class Builder {
     this._context.add(ct);
     return ct;
   }
-  
+
   /**
    * encode chunks of type chunk. this is done as a bootstrap since many default slot
    * values are these chunks
@@ -332,7 +328,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * iteratively try fully resolving chunktypes, for each fully resolved chunktype, provisionally create
    * the chunks
@@ -371,7 +367,7 @@ public class Builder {
       throw new RuntimeException(("Suspected cyclic build dependency found in types " + dependentTypes));
     }
   }
-  
+
   /**
    * return the resolved value or the value object itself for unresolved
    */
@@ -400,10 +396,9 @@ public class Builder {
     if ((resolvedByContext != null)) {
       return resolvedByContext;
     }
-    Builder.LOGGER.debug(String.format("Unresolved slot value %s", value));
     return value;
   }
-  
+
   /**
    * return true if all slots are resolved, for each resolved, call the consumer
    */
@@ -424,7 +419,7 @@ public class Builder {
     int _size = slots.size();
     return (_size == 0);
   }
-  
+
   /**
    * try to fully resolve the slot values of this chunktype. if successful,
    * provisionally encode the chunks
@@ -456,13 +451,12 @@ public class Builder {
     if (slotsResolved) {
       fct.build();
       this._context.encodeChunkType(chunkType.getName());
-      Builder.LOGGER.debug(String.format("Resolved %s", chunkType.getName()));
       this.stage4ProvisionChunks(chunkType, chunkSymbols);
       return true;
     }
     return false;
   }
-  
+
   /**
    * provisionally create the chunks of this type
    */
@@ -479,12 +473,11 @@ public class Builder {
       if (_equals) {
         final IChunk provisionalChunk = FluentChunk.from(this._context.getChunkType(chunkType.getName())).named(chunk.getName()).build();
         this._context.add(provisionalChunk);
-        Builder.LOGGER.debug(String.format("Provisioned %s", chunk.getName()));
       }
     };
     allChunks.forEach(_function_1);
   }
-  
+
   protected void stage5ResolveChunkSlots(final ChunkDef chunk, final Set<String> chunksToNotEncode) {
     IChunk c = this._context.getChunk(chunk.getName());
     boolean _isEncoded = c.isEncoded();
@@ -505,7 +498,6 @@ public class Builder {
       boolean _not = (!_contains);
       if (_not) {
         this._context.encodeChunk(chunk.getName());
-        Builder.LOGGER.debug(String.format("Resolved %s", chunk.getName()));
       }
     } else {
       String _name = chunk.getName();
@@ -515,7 +507,7 @@ public class Builder {
       throw new RuntimeException(_plus_2);
     }
   }
-  
+
   protected void stage5ResolveChunks(final ModelFragment fragment, final Map<String, EObject> chunkSymbols, final Set<String> chunksToNotEncode) {
     final Function1<EObject, ChunkDef> _function = (EObject ed) -> {
       return ((ChunkDef) ed);
@@ -526,7 +518,7 @@ public class Builder {
     };
     allChunks.forEach(_function_1);
   }
-  
+
   protected void stage6DeclarativeParameterization(final ModelFragment fragment, final Map<String, EObject> chunkTypeSymbols, final Map<String, EObject> chunkSymbols) {
     final Function1<EObject, ChunkType> _function = (EObject node) -> {
       return ((ChunkType) node);
@@ -563,7 +555,7 @@ public class Builder {
       }
     }
   }
-  
+
   protected void stage8ProductionEncoding(final ModelFragment fragment, final Map<String, EObject> productionSymbols) {
     final Function<EObject, Production> _function = (EObject ed) -> {
       return ((Production) ed);
@@ -574,7 +566,7 @@ public class Builder {
     };
     allProductions.forEach(_function_1);
   }
-  
+
   protected void stage8EncodeProduction(final Production production, final Map<String, EObject> productionSymbols) {
     final Production productionToBuild = production;
     final FluentProduction fp = FluentProduction.from(this._context.model).named(productionToBuild.getName());
@@ -604,7 +596,7 @@ public class Builder {
     final IProduction p = fp.encode();
     this.assignParameters(p.getSubsymbolicProduction(), productionToBuild.getParameters());
   }
-  
+
   protected Comparable<?> resolveIsa(final IsaBlock isa) {
     try {
       String _xtrycatchfinallyexpression = null;
@@ -649,7 +641,7 @@ public class Builder {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected Set<ICondition> _buildCondition(final Match match) {
     Set<ICondition> _xblockexpression = null;
     {
@@ -693,7 +685,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected Set<ICondition> _buildCondition(final Query query) {
     Set<ICondition> _xblockexpression = null;
     {
@@ -708,7 +700,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected Set<ICondition> _buildCondition(final Proxy proxy) {
     try {
       Set<ICondition> _xblockexpression = null;
@@ -727,7 +719,7 @@ public class Builder {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected Set<ICondition> _buildCondition(final Script script) {
     try {
       Set<ICondition> _xblockexpression = null;
@@ -747,7 +739,7 @@ public class Builder {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected DefaultAction _buildAction(final Proxy proxy) {
     try {
       ProxyAction _xblockexpression = null;
@@ -766,7 +758,7 @@ public class Builder {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected DefaultAction _buildAction(final Script script) {
     try {
       ScriptableAction _xblockexpression = null;
@@ -785,7 +777,7 @@ public class Builder {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected DefaultAction _buildAction(final Add add) {
     AddAction _xblockexpression = null;
     {
@@ -801,7 +793,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected DefaultAction _buildAction(final Modify modify) {
     ModifyAction _xblockexpression = null;
     {
@@ -816,7 +808,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected DefaultAction _buildAction(final Remove remove) {
     RemoveAction _xblockexpression = null;
     {
@@ -831,12 +823,12 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected DefaultAction _buildAction(final Output output) {
     String _string = output.getString();
     return new OutputAction(_string);
   }
-  
+
   protected BasicSlot _buildSlot(final OrSlot orSlot) {
     DefaultLogicalSlot _xblockexpression = null;
     {
@@ -851,7 +843,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected BasicSlot _buildSlot(final AndSlot andSlot) {
     DefaultLogicalSlot _xblockexpression = null;
     {
@@ -866,7 +858,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected BasicSlot _buildSlot(final NotSlot notSlot) {
     DefaultLogicalSlot _xblockexpression = null;
     {
@@ -881,7 +873,7 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected BasicSlot _buildSlot(final ConditionalSlot conditionalSlot) {
     DefaultConditionalSlot _xblockexpression = null;
     {
@@ -917,13 +909,13 @@ public class Builder {
     }
     return _xblockexpression;
   }
-  
+
   protected BasicSlot _buildSlot(final SimpleSlot simpleSlot) {
     String _name = simpleSlot.getName();
     Object _resolveSlotValue = this.resolveSlotValue(simpleSlot.getValue());
     return new DefaultMutableSlot(_name, _resolveSlotValue);
   }
-  
+
   protected void stage9Parameters(final ModelFragment fragment, final Map<String, EObject> chunkTypeSymbols, final Map<String, EObject> chunkSymbols, final Map<String, EObject> productionSymbols, final Map<String, EObject> bufferSymbols) {
     final Consumer<Parameters> _function = (Parameters parameters) -> {
       final Consumer<String> _function_1 = (String id) -> {
@@ -959,7 +951,7 @@ public class Builder {
     };
     EcoreUtil2.<Parameters>getAllContentsOfType(fragment, Parameters.class).forEach(_function);
   }
-  
+
   protected Set<ICondition> buildCondition(final ProductionCondition match) {
     if (match instanceof Match) {
       return _buildCondition((Match)match);
@@ -974,7 +966,7 @@ public class Builder {
         Arrays.<Object>asList(match).toString());
     }
   }
-  
+
   protected DefaultAction buildAction(final ProductionAction add) {
     if (add instanceof Add) {
       return _buildAction((Add)add);
@@ -993,7 +985,7 @@ public class Builder {
         Arrays.<Object>asList(add).toString());
     }
   }
-  
+
   protected BasicSlot buildSlot(final EObject andSlot) {
     if (andSlot instanceof AndSlot) {
       return _buildSlot((AndSlot)andSlot);

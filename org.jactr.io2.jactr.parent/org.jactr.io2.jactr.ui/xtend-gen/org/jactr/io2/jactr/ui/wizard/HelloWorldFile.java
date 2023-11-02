@@ -13,7 +13,7 @@ import org.eclipse.xtext.ui.wizard.template.StringSelectionTemplateVariable;
 @SuppressWarnings("all")
 public final class HelloWorldFile extends AbstractFileTemplate {
   private final StringSelectionTemplateVariable modelType = this.combo("Model Type:", new String[] { "Basic", "Embodied" }, "Type of model to generate");
-  
+
   @Override
   public void generateFiles(final IFileGenerator generator) {
     boolean _equals = this.modelType.equals("Basic");

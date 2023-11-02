@@ -14,7 +14,7 @@ import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider;
 @SuppressWarnings("all")
 public class ModelFragmentDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
   private final String IMAGE_HOME = "basic/";
-  
+
   @Override
   public Object image(final IEObjectDescription ele) {
     String _name = ele.getEClass().getName();

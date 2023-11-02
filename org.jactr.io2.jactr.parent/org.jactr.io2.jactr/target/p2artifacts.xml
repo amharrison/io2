@@ -1,23 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='2'>
-  <artifact classifier='osgi.bundle' id='org.jactr.io2.jactr' version='1.0.0.202104201419'>
-    <properties size='5'>
-      <property name='artifact.size' value='685271'/>
-      <property name='download.size' value='685271'/>
+  <artifact classifier='osgi.bundle' id='org.jactr.io2.jactr' version='1.0.0.202310291452'>
+    <properties size='9'>
+      <property name='artifact.size' value='529686'/>
+      <property name='download.size' value='529686'/>
+      <property name='download.checksum.sha-512' value='9e465f506ecd356f9908c42f39fa7e400ebab249dc39b2442d927c647da638358cab8aaa971f88bf541ebea068374aeeeebfb0c5733438ba1a544be992266f55'/>
+      <property name='download.checksum.sha-1' value='a9fd33aca4047343b89e9893e3e4cb8cbf861dd8'/>
+      <property name='download.checksum.sha-256' value='3345462e4ddc2fd4b0d9653a6b9c59cde8c1ff5f1cc2884a7197a065cfa7f42d'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+      <property name='maven-type' value='eclipse-plugin'/>
     </properties>
   </artifact>
-  <artifact classifier='osgi.bundle' id='org.jactr.io2.jactr.source' version='1.0.0.202104201419'>
-    <properties size='6'>
-      <property name='artifact.size' value='512560'/>
-      <property name='download.size' value='512560'/>
+  <artifact classifier='osgi.bundle' id='org.jactr.io2.jactr.source' version='1.0.0.202310291452'>
+    <properties size='10'>
+      <property name='artifact.size' value='383251'/>
+      <property name='download.size' value='383251'/>
+      <property name='download.checksum.sha-512' value='c570277482e4e54c0362e4b312d97242f2f4e741336cf34c4b9c3ca0f850c19473e347f80e687c6d1deeba25632d01c93ce2a8614dc9a2af75da1a2b4cf96480'/>
+      <property name='download.checksum.sha-1' value='8bdd8c026b706aa131a8f1ae55975a3b03a0a155'/>
+      <property name='download.checksum.sha-256' value='2325e9366dac63f94b9aef4f2ec2c52fbe51ae372e2ec7be72aacccb8026e341'/>
       <property name='maven-groupId' value='org.jactr.io2.jactr'/>
       <property name='maven-artifactId' value='org.jactr.io2.jactr'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
       <property name='maven-classifier' value='sources'/>
+      <property name='maven-type' value='java-source'/>
     </properties>
   </artifact>
 </artifacts>

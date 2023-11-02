@@ -30,36 +30,36 @@ public class ModelFragmentUiModule extends AbstractModelFragmentUiModule {
   public Class<? extends IHighlightingConfiguration> bindIHighlightingConfiguration() {
     return HighlightingConfiguration.class;
   }
-  
+
   public Class<? extends ISemanticHighlightingCalculator> bindIdeSemanticHighlightingCalculator() {
     return SemanticHighlightingCalculator.class;
   }
-  
+
   public Class<? extends IHyperlinkHelper> bindIHyperlinkHelper() {
     return JACTRHyperlinkHelper.class;
   }
-  
+
   public Class<? extends IClassNameValidator> bindIClassNameValidator() {
     return EclipseProjectAwareClassNameValidator.class;
   }
-  
+
   public Class<? extends ContentAssistUtils> bindContentAssistUtils() {
     return ContentAssistUtils.class;
   }
-  
+
   @Override
   public Class<? extends IRenameStrategy2> bindIRenameStrategy2() {
     return RenameStrategy.class;
   }
-  
+
   public Class<? extends IOccurrenceComputer> bindIOccurrenceComputer() {
     return ModelFragmentOccurrenceComputer.class;
   }
-  
+
   public Class<? extends IReferenceFinder> bindReferenceFinder() {
     return ModelFragmentUIReferenceFinder.class;
   }
-  
+
   public ModelFragmentUiModule(final AbstractUIPlugin arg0) {
     super(arg0);
   }

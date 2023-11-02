@@ -63,34 +63,34 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
   @Inject
   @Extension
   private ModelFragmentUtil _modelFragmentUtil;
-  
+
   @Inject
   private IClassNameValidator _classNameValidator;
-  
+
   public static final String BAD_PACKAGE = "badPackage";
-  
+
   public static final String BAD_SLOT_NAME = "badSlotName";
-  
+
   public static final String SHADOW_SLOT_NAME = "shadowSlotName";
-  
+
   public static final String CYCLIC_TYPE = "cyclicType";
-  
+
   public static final String BAD_VARIABLE = "badVariable";
-  
+
   public static final String REDEFINED = "redefined";
-  
+
   public static final String UNKNOWN_CHUNK = "unknownChunk";
-  
+
   @Override
   public void handleExceptionDuringValidation(final Throwable targetException) throws RuntimeException {
     targetException.printStackTrace();
     super.handleExceptionDuringValidation(targetException);
   }
-  
+
   public boolean isValidClassName(final Resource resource, final String className) {
     return this._classNameValidator.isValidClassName(resource, className);
   }
-  
+
   @Check(CheckType.NORMAL)
   public void checkPackagePath(final PackageDeclaration dec) {
     if (((dec.getName().indexOf("-") != (-1)) || (dec.getName().indexOf(":") != (-1)))) {
@@ -122,7 +122,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
         ModelFragmentPackage.Literals.PACKAGE_DECLARATION__NAME, ModelFragmentValidator.BAD_PACKAGE);
     }
   }
-  
+
   @Check(CheckType.FAST)
   public void checkImportsOnClasspath(final Import importDec) {
     String _importedNamespace = importDec.getImportedNamespace();
@@ -139,7 +139,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       this._modelFragmentUtil.dump(importDec.eResource());
     }
   }
-  
+
   @Check(CheckType.NORMAL)
   public void checkSlotValues(final PackageDeclaration packageDec) {
     final HashMap<String, IEObjectDescription> symbolTable = this._modelFragmentUtil.fullSymbolTable(packageDec);
@@ -173,7 +173,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
     };
     allValues.forEach(_function);
   }
-  
+
   @Check(CheckType.NORMAL)
   public void checkParameterIds(final Parameters parametersDef) {
     final HashMap<String, IEObjectDescription> symbolTable = this._modelFragmentUtil.fullSymbolTable(parametersDef);
@@ -189,7 +189,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
     };
     parametersDef.getElements().forEach(_function);
   }
-  
+
   @Check(CheckType.FAST)
   public void checkClassnameOfModule(final ModelModule module) {
     boolean _isValidClassName = this.isValidClassName(module.eResource(), module.getModuleClass());
@@ -201,7 +201,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
         ModelFragmentPackage.Literals.MODEL_MODULE__MODULE_CLASS);
     }
   }
-  
+
   @Check(CheckType.FAST)
   public void checkClassnameOfExtension(final ModelExtension ext) {
     boolean _isValidClassName = this.isValidClassName(ext.eResource(), ext.getExtensionClass());
@@ -213,7 +213,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
         ModelFragmentPackage.Literals.MODEL_EXTENSION__EXTENSION_CLASS);
     }
   }
-  
+
   /**
    * does this slotName exist in the chunktype hierarchy
    */
@@ -243,7 +243,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * Chunk validation
    */
@@ -270,7 +270,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       }
     }
   }
-  
+
   @Check(CheckType.NORMAL)
   public void checkUniqueChunk(final ChunkDef chunkDef) {
     final Function1<Chunks, EList<ChunkDef>> _function = (Chunks chunks) -> {
@@ -305,7 +305,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       this.error(_plus_3, chunkDef, ModelFragmentPackage.Literals.OVERRIDABLE__NAME, ModelFragmentValidator.REDEFINED);
     }
   }
-  
+
   /**
    * chunktype validation
    */
@@ -323,7 +323,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       }
     }
   }
-  
+
   @Check(CheckType.NORMAL)
   public void checkUniqueChunkType(final ChunkType chunkType) {
     final Function1<ChunkType, Boolean> _function = (ChunkType node) -> {
@@ -355,7 +355,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       this.error(_plus_3, chunkType, ModelFragmentPackage.Literals.OVERRIDABLE__NAME, ModelFragmentValidator.REDEFINED);
     }
   }
-  
+
   @Check(CheckType.NORMAL)
   public void checkUniqueProduction(final Production production) {
     final Function1<Production, Boolean> _function = (Production node) -> {
@@ -387,7 +387,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       this.error(_plus_3, production, ModelFragmentPackage.Literals.OVERRIDABLE__NAME, ModelFragmentValidator.REDEFINED);
     }
   }
-  
+
   @Check(CheckType.NORMAL)
   public void checkUniqueBuffer(final Buffer buffer) {
     final Function1<Buffer, Boolean> _function = (Buffer node) -> {
@@ -430,7 +430,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       }
     }
   }
-  
+
   @Check(CheckType.FAST)
   public void checkCyclicChunkType(final ChunkType chunkType) {
     boolean _contains = this._modelFragmentUtil.chunkTypeHierarchy(chunkType).contains(chunkType);
@@ -441,7 +441,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
         ModelFragmentPackage.Literals.CHUNK_TYPE__SUPER_TYPE, ModelFragmentValidator.CYCLIC_TYPE);
     }
   }
-  
+
   /**
    * Match in three flavors
    */
@@ -563,7 +563,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       }
     }
   }
-  
+
   /**
    * three flavors of Add (type, chunk, variable)
    */
@@ -695,7 +695,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       }
     }
   }
-  
+
   /**
    * Modify
    */
@@ -769,7 +769,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       }
     }
   }
-  
+
   /**
    * Remove
    */
@@ -843,7 +843,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       }
     }
   }
-  
+
   @Check(CheckType.FAST)
   public void checkProxy(final Proxy proxy) {
     final String className = proxy.getName();
@@ -853,7 +853,7 @@ public class ModelFragmentValidator extends AbstractModelFragmentValidator {
       this.error((className + " could not be found in current classpath"), proxy, ModelFragmentPackage.Literals.PROXY__NAME);
     }
   }
-  
+
   @Check(CheckType.FAST)
   public void checkVariablesInRHS(final Production production) {
     final HashSet<String> variables = this._modelFragmentUtil.variables(production);

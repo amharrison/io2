@@ -4,7 +4,7 @@
 package org.jactr.io2.jactr.ui.quickfix;
 
 import com.google.common.base.Objects;
-import javax.inject.Inject;
+import com.google.inject.Inject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
@@ -39,7 +39,7 @@ public class ModelFragmentQuickfixProvider extends DefaultQuickfixProvider {
   @Inject
   @Extension
   private ModelFragmentUtil _modelFragmentUtil;
-  
+
   @Fix(ModelFragmentValidator.BAD_SLOT_NAME)
   public void replaceSlot(final Issue issue, final IssueResolutionAcceptor acceptor) {
     String[] _data = issue.getData();
@@ -57,7 +57,7 @@ public class ModelFragmentQuickfixProvider extends DefaultQuickfixProvider {
       }
     }
   }
-  
+
   @Fix(ModelFragmentValidator.BAD_VARIABLE)
   public void replaceVariableOrSlot(final Issue issue, final IssueResolutionAcceptor acceptor) {
     String[] _data = issue.getData();
@@ -75,7 +75,7 @@ public class ModelFragmentQuickfixProvider extends DefaultQuickfixProvider {
       }
     }
   }
-  
+
   @Fix(ModelFragmentValidator.REDEFINED)
   public void insertOverride(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final ISemanticModification _function = (EObject element, IModificationContext context) -> {
@@ -85,7 +85,7 @@ public class ModelFragmentQuickfixProvider extends DefaultQuickfixProvider {
     };
     acceptor.accept(issue, "@Override", "Insert @Override", null, _function);
   }
-  
+
   @Fix(ModelFragmentValidator.UNKNOWN_CHUNK)
   public void insertChunkDefSemantic(final Issue issue, final IssueResolutionAcceptor acceptor) {
     String[] _data = issue.getData();
@@ -102,7 +102,7 @@ public class ModelFragmentQuickfixProvider extends DefaultQuickfixProvider {
             chunkDef.setName(chunkName);
             EObject _rootContainer = EcoreUtil.getRootContainer(element);
             final ModelFragment root = ((ModelFragment) _rootContainer);
-            final IEObjectDescription chunkTypeDesc = IterableExtensions.<IEObjectDescription>last(this._modelFragmentUtil.chunkTypeSymbolTable(root).get("chunk"));
+            final IEObjectDescription chunkTypeDesc = this._modelFragmentUtil.chunkTypeSymbolTable(root).get("chunk").getLast();
             EObject _resolve = EcoreUtil.resolve(chunkTypeDesc.getEObjectOrProxy(), root.eResource().getResourceSet());
             final ChunkType chunkType = ((ChunkType) _resolve);
             boolean foundExisting = false;

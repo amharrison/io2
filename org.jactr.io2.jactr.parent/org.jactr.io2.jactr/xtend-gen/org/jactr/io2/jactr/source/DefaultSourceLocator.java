@@ -1,10 +1,10 @@
 package org.jactr.io2.jactr.source;
 
+import com.google.inject.Inject;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import javax.inject.Inject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
@@ -19,7 +19,7 @@ import org.jactr.io2.jactr.validation.ModelFragmentUtil;
 public class DefaultSourceLocator implements ISourceLocator {
   @Inject
   private ModelFragmentUtil _util;
-  
+
   @Override
   public Map<String, ISourceLocator.SourceLocation> locateSourceElements(final EObject root) {
     TreeMap<String, ISourceLocator.SourceLocation> _xblockexpression = null;

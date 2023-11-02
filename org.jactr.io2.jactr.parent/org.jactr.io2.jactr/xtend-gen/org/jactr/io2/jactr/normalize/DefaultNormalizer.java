@@ -1,10 +1,10 @@
 package org.jactr.io2.jactr.normalize;
 
+import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.File;
 import java.util.Set;
 import java.util.function.Consumer;
-import javax.inject.Inject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -26,9 +26,9 @@ import org.jactr.io2.jactr.util.IO2Utilities;
 public class DefaultNormalizer implements INormalizer {
   @Inject
   public Provider<ResourceSet> resourceSetProvider;
-  
+
   private ModelFragment _root;
-  
+
   @Override
   public ModelFragment normalize(final ModelFragment modelFragment) {
     try {
@@ -60,7 +60,7 @@ public class DefaultNormalizer implements INormalizer {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   public void importContents(final Import importStatement) {
     try {
       String _replace = importStatement.getImportedNamespace().substring(0, importStatement.getImportedNamespace().lastIndexOf(".")).replace(".", 

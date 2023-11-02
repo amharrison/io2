@@ -1,7 +1,7 @@
 package org.jactr.io2.jactr.source
 
+import com.google.inject.Inject
 import java.util.TreeMap
-import javax.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils

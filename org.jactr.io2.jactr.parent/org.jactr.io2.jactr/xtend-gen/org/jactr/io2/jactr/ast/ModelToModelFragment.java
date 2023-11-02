@@ -1,12 +1,13 @@
 package org.jactr.io2.jactr.ast;
 
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
-import javax.inject.Inject;
 import org.eclipse.collections.api.block.procedure.Procedure;
 import org.eclipse.collections.api.multimap.MutableMultimap;
 import org.eclipse.collections.api.multimap.list.MutableListMultimap;
@@ -81,8 +82,8 @@ import org.jactr.scripting.condition.ScriptableCondition;
 @SuppressWarnings("all")
 public class ModelToModelFragment {
   @Inject
-  private ResourceSet _resourceSet;
-  
+  private Provider<ResourceSet> _resourceSetProvider;
+
   public ModelFragment convert(final IModel model) {
     try {
       ModelFragment _xblockexpression = null;
@@ -119,7 +120,7 @@ public class ModelToModelFragment {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   /**
    * ASTs should be associated with a resource, so we create and reuse a dummy one.
    */
@@ -133,10 +134,10 @@ public class ModelToModelFragment {
       PackageDeclaration _package_1 = modelFragment.getPackage();
       _package_1.setBuffers(ModelFragmentFactory.eINSTANCE.createBuffers());
       final URI uri = URI.createURI("dummy:/inmemory.jactr");
-      final Resource oldResource = this._resourceSet.getResource(uri, false);
+      final Resource oldResource = this._resourceSetProvider.get().getResource(uri, false);
       Resource resource = oldResource;
       if ((resource == null)) {
-        resource = this._resourceSet.createResource(uri);
+        resource = this._resourceSetProvider.get().createResource(uri);
       }
       resource.getContents().clear();
       resource.getContents().add(modelFragment);
@@ -144,7 +145,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * sparse conversion of chunktype to ChunkType. It is sparse in that
    * the parent tree is no rendered. But all the derived slots are.
@@ -152,7 +153,7 @@ public class ModelToModelFragment {
   public Object convert(final IChunkType chunkType, final boolean includeChunks) {
     return null;
   }
-  
+
   public ChunkDef convert(final IChunk chunk) {
     ChunkDef _xblockexpression = null;
     {
@@ -168,7 +169,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   public Production convert(final IProduction production) {
     Production _xblockexpression = null;
     {
@@ -201,11 +202,11 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   public Object convert(final IActivationBuffer buffer) {
     return null;
   }
-  
+
   protected Iterable<ModelModule> modules(final IModel model) {
     final Function1<IModule, ModelModule> _function = (IModule module) -> {
       ModelModule _xblockexpression = null;
@@ -221,7 +222,7 @@ public class ModelToModelFragment {
     };
     return IterableExtensions.<IModule, ModelModule>map(model.getModules(), _function);
   }
-  
+
   protected Iterable<ModelExtension> extensions(final IModel model) {
     final Function1<IExtension, ModelExtension> _function = (IExtension module) -> {
       ModelExtension _xblockexpression = null;
@@ -237,7 +238,7 @@ public class ModelToModelFragment {
     };
     return IterableExtensions.<IExtension, ModelExtension>map(model.getExtensions(), _function);
   }
-  
+
   protected Buffers buffers(final IModel model, final MutableMultimap<String, EObject> variables) {
     Buffers _xblockexpression = null;
     {
@@ -254,7 +255,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Buffer toBuffer(final IActivationBuffer buffer) {
     Buffer _xblockexpression = null;
     {
@@ -267,7 +268,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Production toProduction(final IProduction production, final MutableMultimap<String, EObject> variables) {
     Production _xblockexpression = null;
     {
@@ -288,7 +289,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionCondition _toCondition(final ChunkCondition condition, final MutableMultimap<String, EObject> variables) {
     Match _xblockexpression = null;
     {
@@ -331,7 +332,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionCondition _toCondition(final ChunkTypeCondition condition, final MutableMultimap<String, EObject> variables) {
     Match _xblockexpression = null;
     {
@@ -374,7 +375,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionCondition _toCondition(final VariableCondition condition, final MutableMultimap<String, EObject> variables) {
     Match _xblockexpression = null;
     {
@@ -404,7 +405,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionCondition _toCondition(final QueryCondition condition, final MutableMultimap<String, EObject> variables) {
     Query _xblockexpression = null;
     {
@@ -431,7 +432,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionCondition _toCondition(final ProxyCondition condition, final MutableMultimap<String, EObject> variables) {
     Proxy _xblockexpression = null;
     {
@@ -446,7 +447,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionCondition _toCondition(final ScriptableCondition condition, final MutableMultimap<String, EObject> variables) {
     Script _xblockexpression = null;
     {
@@ -457,7 +458,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionAction _toAction(final AddAction action, final MutableMultimap<String, EObject> variables) {
     Add _xblockexpression = null;
     {
@@ -528,7 +529,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionAction _toAction(final ModifyAction action, final MutableMultimap<String, EObject> variables) {
     Modify _xblockexpression = null;
     {
@@ -555,7 +556,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionAction _toAction(final RemoveAction action, final MutableMultimap<String, EObject> variables) {
     Remove _xblockexpression = null;
     {
@@ -582,7 +583,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionAction _toAction(final OutputAction action, final MutableMultimap<String, EObject> variables) {
     Output _xblockexpression = null;
     {
@@ -592,7 +593,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionAction _toAction(final ProxyAction action, final MutableMultimap<String, EObject> variables) {
     Proxy _xblockexpression = null;
     {
@@ -607,7 +608,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionAction _toAction(final ScriptableAction action, final MutableMultimap<String, EObject> variables) {
     Script _xblockexpression = null;
     {
@@ -618,13 +619,13 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionAction _toAction(final IAction action, final MutableMultimap<String, EObject> variables) {
     String _name = action.getClass().getName();
     String _plus = ("Unknown action type " + _name);
     throw new IllegalStateException(_plus);
   }
-  
+
   protected ParametersBlock parameters(final IParameterized parameterized) {
     ParametersBlock _xblockexpression = null;
     {
@@ -648,7 +649,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * recursively visit the chunktypes, rendering the
    * roots first, and
@@ -696,7 +697,7 @@ public class ModelToModelFragment {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-  
+
   protected ChunkDef chunk(final IChunk chunk) {
     ChunkDef _xblockexpression = null;
     {
@@ -712,7 +713,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ChunkType chunkType(final IChunkType toCreate, final Collection<IChunkType> all, final Map<String, ChunkType> visited) {
     ChunkType _xblockexpression = null;
     {
@@ -739,7 +740,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected EObject slot(final ISlot slot, final boolean forceSimple) {
     EObject _xifexpression = null;
     if ((slot instanceof ILogicalSlot)) {
@@ -825,7 +826,7 @@ public class ModelToModelFragment {
     }
     return _xifexpression;
   }
-  
+
   protected Value toSlotValue(final Object object) {
     Value _xblockexpression = null;
     {
@@ -856,7 +857,7 @@ public class ModelToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ProductionCondition toCondition(final ICondition condition, final MutableMultimap<String, EObject> variables) {
     if (condition instanceof ChunkCondition) {
       return _toCondition((ChunkCondition)condition, variables);
@@ -875,7 +876,7 @@ public class ModelToModelFragment {
         Arrays.<Object>asList(condition, variables).toString());
     }
   }
-  
+
   protected ProductionAction toAction(final IAction action, final MutableMultimap<String, EObject> variables) {
     if (action instanceof ProxyAction) {
       return _toAction((ProxyAction)action, variables);

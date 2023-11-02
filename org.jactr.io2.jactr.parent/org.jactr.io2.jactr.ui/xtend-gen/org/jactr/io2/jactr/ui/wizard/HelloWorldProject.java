@@ -25,9 +25,9 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 public final class HelloWorldProject extends AbstractProjectTemplate {
   private final StringTemplateVariable namespace = this.text("Package:", "edu.institution.lab.project", 
     "The dotted package path to place for the model. Often reverse domain name.");
-  
+
   private final StringSelectionTemplateVariable modelType = this.combo("Model Type:", new String[] { "Basic", "Embodied" }, "Type of model to generate");
-  
+
   @Override
   protected IStatus validate() {
     Status _xifexpression = null;
@@ -39,7 +39,7 @@ public final class HelloWorldProject extends AbstractProjectTemplate {
     }
     return _xifexpression;
   }
-  
+
   @Override
   public void generateProjects(final IProjectGenerator generator) {
     final boolean isEmbodied = this.modelType.getValue().equals("Embodied");

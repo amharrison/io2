@@ -54,21 +54,21 @@ import org.jactr.io2.jactr.modelFragment.Value;
 public class ModelFragmentUtil {
   @Inject
   private ResourceDescriptionsProvider _descriptors;
-  
+
   @Inject
   private IContainer.Manager _containerManager;
-  
+
   @Inject
   private IQualifiedNameConverter _converter;
-  
+
   @Inject
   private IResourceServiceProvider.Registry rspr;
-  
+
   public void dump(final Resource resource) {
     this.printExportedObjects(resource);
     this.printVisibleResources(resource, this._descriptors.getResourceDescriptions(resource));
   }
-  
+
   public void printExportedObjects(final Resource resource) {
     final IResourceServiceProvider resServiceProvider = this.rspr.getResourceServiceProvider(resource.getURI());
     final IResourceDescription.Manager manager = resServiceProvider.getResourceDescriptionManager();
@@ -78,7 +78,7 @@ public class ModelFragmentUtil {
       InputOutput.<String>println(this._converter.toString(eod.getQualifiedName()));
     }
   }
-  
+
   public void printVisibleResources(final Resource resource, final IResourceDescriptions index) {
     final IResourceServiceProvider resServiceProvider = this.rspr.getResourceServiceProvider(resource.getURI());
     final IResourceDescription.Manager manager = resServiceProvider.getResourceDescriptionManager();
@@ -91,7 +91,7 @@ public class ModelFragmentUtil {
       }
     }
   }
-  
+
   public HashSet<ChunkType> chunkTypeHierarchy(final ChunkType chunkType) {
     HashSet<ChunkType> _xblockexpression = null;
     {
@@ -107,7 +107,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * all possible slots for type, set
    */
@@ -138,7 +138,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * all possible slot names for a given chunkDef.
    */
@@ -154,7 +154,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   private Chunks findChunksForChunkDef(final ChunkDef chunkDef) {
     Object _xblockexpression = null;
     {
@@ -182,7 +182,7 @@ public class ModelFragmentUtil {
     }
     return ((Chunks)_xblockexpression);
   }
-  
+
   public HashSet<String> guessSlots(final EObject node) {
     HashSet<String> _xblockexpression = null;
     {
@@ -211,7 +211,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public HashSet<String> variables(final Production node) {
     HashSet<String> _xblockexpression = null;
     {
@@ -235,7 +235,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public HashSet<String> variables(final Production node, final Match ignoring) {
     HashSet<String> _xblockexpression = null;
     {
@@ -262,7 +262,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public boolean couldHaveHiddenBindings(final Production node) {
     boolean _xblockexpression = false;
     {
@@ -287,7 +287,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * methods for the exported resources
    */
@@ -299,11 +299,11 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public Iterable<IEObjectDescription> getExportedObjectDescriptions(final EObject o) {
     return this.getResourceDescription(o).getExportedObjects();
   }
-  
+
   public Iterable<IEObjectDescription> getExportedObjectDescriptionsByType(final EObject o, final EClass type) {
     final Function1<IEObjectDescription, Boolean> _function = (IEObjectDescription object) -> {
       EClass _eClass = object.getEClass();
@@ -311,7 +311,7 @@ public class ModelFragmentUtil {
     };
     return IterableExtensions.<IEObjectDescription>filter(this.getResourceDescription(o).getExportedObjects(), _function);
   }
-  
+
   /**
    * visibility
    */
@@ -332,14 +332,14 @@ public class ModelFragmentUtil {
     }
     return _xifexpression;
   }
-  
+
   public Set<IEObjectDescription> getVisibileExportedObjectDescriptions(final EObject o, final EClass type) {
     final Function1<IContainer, Iterable<IEObjectDescription>> _function = (IContainer container) -> {
       return container.getExportedObjectsByType(type);
     };
     return IterableExtensions.<IEObjectDescription>toSet(Iterables.<IEObjectDescription>concat(ListExtensions.<IContainer, Iterable<IEObjectDescription>>map(this.getVisibileContainers(o), _function)));
   }
-  
+
   public Function1<? super IEObjectDescription, Boolean> localAndImportFilter(final EObject root, final boolean excludeLocal) {
     Function1<? super IEObjectDescription, Boolean> _xblockexpression = null;
     {
@@ -366,7 +366,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public boolean startsWith(final String string, final Set<String> startsWith) {
     for (final String start : startsWith) {
       boolean _startsWith = string.startsWith(start);
@@ -376,7 +376,7 @@ public class ModelFragmentUtil {
     }
     return false;
   }
-  
+
   public Map<String, IEObjectDescription> getRawVisibleObjectDescriptionsByType(final EObject o, final EClass type) {
     final Set<IEObjectDescription> allVisible = this.getVisibileExportedObjectDescriptions(o, type);
     final Iterable<IEObjectDescription> exported = this.getExportedObjectDescriptionsByType(o, type);
@@ -387,7 +387,7 @@ public class ModelFragmentUtil {
     };
     return IterableExtensions.<String, IEObjectDescription>toMap(difference, _function);
   }
-  
+
   /**
    * global scope means everything in the project is visible,
    * we filter these results based on the import directive of the
@@ -403,7 +403,7 @@ public class ModelFragmentUtil {
     };
     return IterableExtensions.<String, IEObjectDescription>toMap(IterableExtensions.<IEObjectDescription>filter(difference, this.localAndImportFilter(EcoreUtil.getRootContainer(o), true)), _function);
   }
-  
+
   public LinkedListMultimap<String, IEObjectDescription> packageSymbolTable(final EObject o) {
     LinkedListMultimap<String, IEObjectDescription> _xblockexpression = null;
     {
@@ -417,7 +417,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public LinkedListMultimap<String, IEObjectDescription> chunkTypeSymbolTable(final EObject o) {
     LinkedListMultimap<String, IEObjectDescription> _xblockexpression = null;
     {
@@ -431,7 +431,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public LinkedListMultimap<String, IEObjectDescription> chunkSymbolTable(final EObject o) {
     LinkedListMultimap<String, IEObjectDescription> _xblockexpression = null;
     {
@@ -445,7 +445,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public LinkedListMultimap<String, IEObjectDescription> bufferSymbolTable(final EObject o) {
     LinkedListMultimap<String, IEObjectDescription> _xblockexpression = null;
     {
@@ -459,7 +459,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public LinkedListMultimap<String, IEObjectDescription> productionSymbolTable(final EObject o) {
     LinkedListMultimap<String, IEObjectDescription> _xblockexpression = null;
     {
@@ -473,7 +473,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public HashMap<String, IEObjectDescription> fullSymbolTable(final EObject o) {
     HashMap<String, IEObjectDescription> _xblockexpression = null;
     {
@@ -502,11 +502,11 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   private EObject toObject(final IEObjectDescription descriptor, final ResourceSet resourceSet) {
     return EcoreUtil.resolve(descriptor.getEObjectOrProxy(), resourceSet);
   }
-  
+
   /**
    * zip through the multimap, for each list > 1, select the one that is local overridden
    * for each selected, resolve
@@ -583,7 +583,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public Map<String, EObject> resolveSymbolTableAny(final Resource resource, final Multimap<String, IEObjectDescription> symbols) {
     TreeMap<String, EObject> _xblockexpression = null;
     {
@@ -616,12 +616,12 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public boolean isString(final Value value) {
     String _string = value.getString();
     return (_string != null);
   }
-  
+
   public boolean isVariable(final Value value) {
     boolean _xblockexpression = false;
     {
@@ -638,7 +638,7 @@ public class ModelFragmentUtil {
     }
     return _xblockexpression;
   }
-  
+
   public boolean isNull(final Value value) {
     String _name = value.getName();
     boolean _tripleEquals = (_name == null);
@@ -647,17 +647,17 @@ public class ModelFragmentUtil {
     }
     return value.getName().equals("null");
   }
-  
+
   public boolean isNumber(final Value value) {
     Double _number = value.getNumber();
     return (_number != null);
   }
-  
+
   public boolean isBoolean(final Value value) {
     Boolean _boolean = value.getBoolean();
     return (_boolean != null);
   }
-  
+
   public boolean isID(final Value value) {
     String _name = value.getName();
     boolean _tripleEquals = (_name == null);

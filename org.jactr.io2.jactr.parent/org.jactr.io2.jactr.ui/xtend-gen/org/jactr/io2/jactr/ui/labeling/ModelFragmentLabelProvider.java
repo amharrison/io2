@@ -39,100 +39,100 @@ import org.jactr.io2.jactr.modelFragment.Value;
 @SuppressWarnings("all")
 public class ModelFragmentLabelProvider extends DefaultEObjectLabelProvider {
   private final String IMAGE_HOME = "basic/";
-  
+
   @Inject
   public ModelFragmentLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
   }
-  
+
   public String image(final ModelFragment frag) {
     return (this.IMAGE_HOME + "jactr.gif");
   }
-  
+
   public String image(final PackageDeclaration dec) {
     return (this.IMAGE_HOME + "library.gif");
   }
-  
+
   public String image(final ModelExtension ext) {
     return (this.IMAGE_HOME + "extension.gif");
   }
-  
+
   public String image(final ModelModule module) {
     return (this.IMAGE_HOME + "extension.gif");
   }
-  
+
   public String text(final ParametersBlock parameters) {
     return "parameters";
   }
-  
+
   public String text(final Chunks ele) {
     return ele.getType().getName();
   }
-  
+
   public String image(final Chunks ele) {
     return (this.IMAGE_HOME + "chunktype.gif");
   }
-  
+
   public String image(final ChunkType ele) {
     return (this.IMAGE_HOME + "chunktype.gif");
   }
-  
+
   public String image(final ChunkDef ele) {
     return (this.IMAGE_HOME + "chunk.gif");
   }
-  
+
   public String image(final Buffer b) {
     return (this.IMAGE_HOME + "buffer.gif");
   }
-  
+
   public String image(final Production p) {
     return (this.IMAGE_HOME + "production.gif");
   }
-  
+
   public String image(final Match m) {
     return (this.IMAGE_HOME + "pattern.gif");
   }
-  
+
   public String text(final Match m) {
     return m.getName().getName();
   }
-  
+
   public String image(final Query q) {
     return (this.IMAGE_HOME + "query.gif");
   }
-  
+
   public String text(final Query q) {
     return q.getName().getName();
   }
-  
+
   public String image(final Script s) {
     return (this.IMAGE_HOME + "script.gif");
   }
-  
+
   public String image(final Add a) {
     return (this.IMAGE_HOME + "add.gif");
   }
-  
+
   public String text(final Add a) {
     return a.getName().getName();
   }
-  
+
   public String image(final Modify a) {
     return (this.IMAGE_HOME + "modify.gif");
   }
-  
+
   public String text(final Modify a) {
     return a.getName().getName();
   }
-  
+
   public String image(final Remove a) {
     return (this.IMAGE_HOME + "remove.gif");
   }
-  
+
   public String text(final Remove a) {
     return a.getName().getName();
   }
-  
+
   public String toString(final Value value) {
     String _name = value.getName();
     boolean _tripleNotEquals = (_name != null);
@@ -156,7 +156,7 @@ public class ModelFragmentLabelProvider extends DefaultEObjectLabelProvider {
     }
     return null;
   }
-  
+
   public String text(final ConditionalSlot slot) {
     String _name = slot.getName();
     String _plus = (_name + " ");
@@ -166,42 +166,42 @@ public class ModelFragmentLabelProvider extends DefaultEObjectLabelProvider {
     String _string = this.toString(slot.getValue());
     return (_plus_2 + _string);
   }
-  
+
   public String text(final SimpleSlot slot) {
     String _name = slot.getName();
     String _plus = (_name + " = ");
     String _string = this.toString(slot.getValue());
     return (_plus + _string);
   }
-  
+
   public String image(final SimpleSlot slot) {
     return (this.IMAGE_HOME + "slot.gif");
   }
-  
+
   public String image(final ConditionalSlot slot) {
     return (this.IMAGE_HOME + "slot.gif");
   }
-  
+
   public String image(final OrSlot slot) {
     return (this.IMAGE_HOME + "slot.gif");
   }
-  
+
   public String image(final AndSlot slot) {
     return (this.IMAGE_HOME + "slot.gif");
   }
-  
+
   public String image(final NotSlot slot) {
     return (this.IMAGE_HOME + "slot.gif");
   }
-  
+
   public String text(final OrSlot slot) {
     return "or";
   }
-  
+
   public String text(final AndSlot slot) {
     return "and";
   }
-  
+
   public String text(final NotSlot slot) {
     return "not";
   }

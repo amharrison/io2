@@ -26,7 +26,7 @@ public class ModelFragmentJvmModelInferrer extends AbstractModelInferrer {
   @Inject
   @Extension
   private JvmTypesBuilder _jvmTypesBuilder;
-  
+
   /**
    * The dispatch method {@code infer} is called for each instance of the
    * given element's type that is contained in a resource.
@@ -52,7 +52,7 @@ public class ModelFragmentJvmModelInferrer extends AbstractModelInferrer {
    */
   protected void _infer(final ModelFragment element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
   }
-  
+
   public void infer(final EObject element, final IJvmDeclaredTypeAcceptor acceptor, final boolean isPreIndexingPhase) {
     if (element instanceof ModelFragment) {
       _infer((ModelFragment)element, acceptor, isPreIndexingPhase);

@@ -79,7 +79,7 @@ public class ASTToModelFragment {
     }
     return modelFragment;
   }
-  
+
   protected String safeName(final String name) {
     String _xblockexpression = null;
     {
@@ -100,7 +100,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<Production> productions(final CommonTree modelTree, final ModelFragment modelFragment) {
     ArrayList<Production> _xblockexpression = null;
     {
@@ -113,7 +113,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Production production(final CommonTree productionTree, final ModelFragment modelFragment) {
     Production _xblockexpression = null;
     {
@@ -139,7 +139,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<ProductionCondition> conditions(final CommonTree productionTree, final Map<String, Buffer> buffers) {
     ArrayList<ProductionCondition> _xblockexpression = null;
     {
@@ -169,7 +169,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<ProductionAction> actions(final CommonTree productionTree, final Map<String, Buffer> buffers) {
     ArrayList<ProductionAction> _xblockexpression = null;
     {
@@ -205,7 +205,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Add add(final CommonTree addAST, final Map<String, Buffer> buffers) {
     Add _xblockexpression = null;
     {
@@ -221,7 +221,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected IsaBlock isa(final CommonTree isaOwnerAST, final ModelFragment fragment) {
     IsaBlock _xblockexpression = null;
     {
@@ -249,7 +249,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Modify modify(final CommonTree modifyAST, final Map<String, Buffer> buffers) {
     Modify _xblockexpression = null;
     {
@@ -263,7 +263,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Remove remove(final CommonTree removeAST, final Map<String, Buffer> buffers) {
     Remove _xblockexpression = null;
     {
@@ -277,7 +277,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Output output(final CommonTree outputAST) {
     Output _xblockexpression = null;
     {
@@ -287,7 +287,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Match match(final CommonTree matchAST, final Map<String, Buffer> buffers) {
     final Match match = ModelFragmentFactory.eINSTANCE.createMatch();
     match.setName(buffers.get(ASTSupport.getName(matchAST)));
@@ -299,7 +299,7 @@ public class ASTToModelFragment {
     }
     return match;
   }
-  
+
   protected Query query(final CommonTree queryAST, final Map<String, Buffer> buffers) {
     final Query query = ModelFragmentFactory.eINSTANCE.createQuery();
     query.setName(buffers.get(ASTSupport.getName(queryAST)));
@@ -309,7 +309,7 @@ public class ASTToModelFragment {
     }
     return query;
   }
-  
+
   protected Proxy proxyCondition(final CommonTree proxyAST) {
     Proxy _xblockexpression = null;
     {
@@ -323,7 +323,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Proxy proxyAction(final CommonTree proxyAST) {
     Proxy _xblockexpression = null;
     {
@@ -337,7 +337,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Script scriptableCondition(final CommonTree scriptAST) {
     Script _xblockexpression = null;
     {
@@ -348,7 +348,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Script scriptableAction(final CommonTree scriptAST) {
     Script _xblockexpression = null;
     {
@@ -359,7 +359,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<ComplexSlot> booleanAndConditionals(final CommonTree slots) {
     ArrayList<ComplexSlot> _xblockexpression = null;
     {
@@ -379,7 +379,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ComplexSlot booleanOrConditional(final CommonTree slotAST) {
     int _type = slotAST.getType();
     switch (_type) {
@@ -392,7 +392,7 @@ public class ASTToModelFragment {
     }
     return ((BooleanOperation) null);
   }
-  
+
   protected BooleanOperation logicalSlot(final CommonTree slotAST) {
     NotSlot _xblockexpression = null;
     {
@@ -413,7 +413,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   /**
    * logical slots have the operation as a child with the child slots
    */
@@ -434,7 +434,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected AndSlot and(final CommonTree slotAST) {
     AndSlot _xblockexpression = null;
     {
@@ -447,7 +447,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected OrSlot or(final CommonTree slotAST) {
     OrSlot _xblockexpression = null;
     {
@@ -460,7 +460,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected NotSlot not(final CommonTree slotAST) {
     NotSlot _xblockexpression = null;
     {
@@ -473,7 +473,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<ConditionalSlot> conditionalSlots(final CommonTree owner) {
     ArrayList<ConditionalSlot> _xblockexpression = null;
     {
@@ -486,7 +486,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ConditionalSlot conditionalSlot(final CommonTree slotAST) {
     ConditionalSlot _xblockexpression = null;
     {
@@ -499,7 +499,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Value asValue(final CommonTree valueAST) {
     Value _xblockexpression = null;
     {
@@ -536,7 +536,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Condition asCondition(final CommonTree slotAST) {
     int _type = slotAST.getChild(1).getType();
     switch (_type) {
@@ -558,7 +558,7 @@ public class ASTToModelFragment {
         throw new RuntimeException(_plus);
     }
   }
-  
+
   protected ArrayList<Element> chunkTypes(final CommonTree modelTree) {
     ArrayList<Element> _xblockexpression = null;
     {
@@ -586,7 +586,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ChunkType chunkType(final String chunkTypeName, final Collection<CommonTree> chunkTypeNodes, final Map<String, ChunkType> chunkTypes) {
     boolean _containsKey = chunkTypes.containsKey(chunkTypeName);
     if (_containsKey) {
@@ -621,7 +621,7 @@ public class ASTToModelFragment {
     chunkTypes.put(chunkType.getName(), chunkType);
     return chunkType;
   }
-  
+
   protected ArrayList<ChunkDef> chunks(final CommonTree chunkTypeTree) {
     ArrayList<ChunkDef> _xblockexpression = null;
     {
@@ -646,7 +646,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<SimpleSlot> simpleSlots(final CommonTree slotContainingTree) {
     ArrayList<SimpleSlot> _xblockexpression = null;
     {
@@ -698,7 +698,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected Buffers buffers(final CommonTree modelTree) {
     Buffers _xblockexpression = null;
     {
@@ -719,7 +719,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<ModelModule> modules(final CommonTree modelTree) {
     ArrayList<ModelModule> _xblockexpression = null;
     {
@@ -740,7 +740,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ArrayList<ModelExtension> extensions(final CommonTree modelTree) {
     ArrayList<ModelExtension> _xblockexpression = null;
     {
@@ -761,7 +761,7 @@ public class ASTToModelFragment {
     }
     return _xblockexpression;
   }
-  
+
   protected ParametersBlock parameters(final CommonTree parameters) {
     ParametersBlock _xblockexpression = null;
     {

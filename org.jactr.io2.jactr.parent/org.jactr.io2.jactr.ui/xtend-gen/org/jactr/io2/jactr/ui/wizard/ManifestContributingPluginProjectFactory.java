@@ -12,12 +12,12 @@ public class ManifestContributingPluginProjectFactory extends PluginProjectFacto
   protected String getBreeToUse() {
     return "JavaSE-11";
   }
-  
+
   protected void customizeManifest(final StringBuilder builder) {
     builder.append("Eclipse-BuddyPolicy: registered\n");
     this.addToContent(builder, this.requiredBundles, "Eclipse-RegisterBuddy");
   }
-  
+
   @Override
   public void createManifest(final IProject project, final IProgressMonitor progressMonitor) throws CoreException {
     final StringBuilder content = new StringBuilder("Manifest-Version: 1.0\n");

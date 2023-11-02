@@ -1,8 +1,8 @@
 package org.jactr.io2.jactr.ui.hyperlink;
 
 import com.google.common.collect.LinkedListMultimap;
+import com.google.inject.Inject;
 import java.util.List;
-import javax.inject.Inject;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -17,7 +17,6 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkAcceptor;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.jactr.io2.jactr.modelFragment.Import;
 import org.jactr.io2.jactr.modelFragment.Parameters;
 import org.jactr.io2.jactr.modelFragment.Value;
@@ -29,7 +28,7 @@ public class JACTRHyperlinkHelper extends TypeAwareHyperlinkHelper {
   @Inject
   @Extension
   private ModelFragmentUtil _modelFragmentUtil;
-  
+
   @Override
   public void createHyperlinksByOffset(final XtextResource resource, final int offset, final IHyperlinkAcceptor acceptor) {
     final EObject astNode = this.getEObjectAtOffsetHelper().resolveElementAt(resource, offset);
@@ -54,7 +53,7 @@ public class JACTRHyperlinkHelper extends TypeAwareHyperlinkHelper {
         final ICompositeNode parseNode_1 = NodeModelUtils.findActualNodeFor(astNode);
         final LinkedListMultimap<String, IEObjectDescription> table = this._modelFragmentUtil.packageSymbolTable(astNode);
         final List<IEObjectDescription> matches = table.get(importSource);
-        final IEObjectDescription descriptor = IterableExtensions.<IEObjectDescription>last(matches);
+        final IEObjectDescription descriptor = matches.getLast();
         if ((descriptor != null)) {
           final EObject target = EcoreUtil.resolve(descriptor.getEObjectOrProxy(), resource.getResourceSet());
           this.createHyperlinksTo(resource, parseNode_1, target, acceptor);
@@ -73,11 +72,11 @@ public class JACTRHyperlinkHelper extends TypeAwareHyperlinkHelper {
       }
     }
   }
-  
+
   public Object getSymbol2(final EObject astNode, final String name) {
     return null;
   }
-  
+
   public EObject getSymbol(final EObject astNode, final String name) {
     try {
       EObject descriptor = this._modelFragmentUtil.resolveSymbolTableAny(astNode.eResource(), this._modelFragmentUtil.chunkSymbolTable(astNode)).get(name);

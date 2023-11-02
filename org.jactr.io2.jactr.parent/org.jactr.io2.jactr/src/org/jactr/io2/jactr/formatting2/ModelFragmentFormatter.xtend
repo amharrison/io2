@@ -38,8 +38,8 @@ import org.jactr.io2.jactr.modelFragment.SimpleSlot
 
 class ModelFragmentFormatter extends AbstractFormatter2 {
 
-  private boolean _tabularProductions = true;
-  private boolean _tabularParameters = true;
+  boolean _tabularProductions = true;
+  boolean _tabularParameters = true;
 
   def dispatch void format(ModelFragment modelFragment, extension IFormattableDocument document) {
     modelFragment.package.format
@@ -49,15 +49,20 @@ class ModelFragmentFormatter extends AbstractFormatter2 {
   def dispatch void format(PackageDeclaration dec, extension IFormattableDocument document) {
     for (imp : dec.imports)
       imp.format
-    dec.imports.last?.append[setNewLines(1,2,3)]
+      
+    if(dec.imports.size()>0)  
+     dec.imports.last?.append[setNewLines(1,2,3)]
+    
 
     for (module : dec.modules)
       module.format
-    dec.modules.last?.append[setNewLines(1,2,3)]
+    if(dec.modules.size()>0)  
+     dec.modules.last?.append[setNewLines(1,2,3)]
 
     for (ext : dec.extensions)
       ext.format
-    dec.extensions.last?.append[setNewLines(1,2,3)]
+    if(dec.extensions.size()>0)  
+      dec.extensions.last?.append[setNewLines(1,2,3)]
 
     dec.buffers.format
 
