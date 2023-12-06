@@ -280,7 +280,7 @@
 								<args>-Dsite.label="${site.label}"</args>
 								<args>-Dcomposite.base.dir=${github-local-clone}</args>
 								<args>-DunqualifiedVersion=${unqualifiedVersion}</args>
-								<args>-DbuildQualifier=${buildQualifier}/updates</args>
+								<args>-DbuildQualifier=${buildQualifier}</args>
 								<args>
 									-DparsedVersion.majorVersion=${parsedVersion.majorVersion}</args>
 								<args>
